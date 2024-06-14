@@ -123,8 +123,8 @@ const Skills = () => {
                 <div className='flex justify-center'>
                 {activeTab === 'Tech' && 
                   <div className='grid pt-10 grid-cols-8 md:grid-cols-12 gap-5'>
-                    {techList.map((skill) => (
-                      <div className="flex col-span-4 md:col-span-4 lg:col-span-3 xl:col-span-2 rounded-lg bg-white shadow-md min-h-12 min-w-36 max-h-12 max-w-36">
+                    {techList.map((skill, index) => (
+                      <div key = {index} className="flex col-span-4 md:col-span-4 lg:col-span-3 xl:col-span-2 rounded-lg bg-white shadow-md min-h-12 min-w-36 max-h-12 max-w-36">
                         <button className="skill flex p-2">
                           {skill.icon}
                           <p className="flex pl-3 self-center font-noto text-black">{skill.item}</p>
@@ -135,8 +135,8 @@ const Skills = () => {
                 }
                 {activeTab === 'Tools' && 
                   <div className='grid pt-10 grid-cols-8 md:grid-cols-12 gap-5'>
-                    {toolList.map((tool) => (
-                      <div className="flex col-span-4 md:col-span-4 lg:col-span-3 xl:col-span-2 rounded-lg bg-white shadow-md min-h-12 min-w-36 max-h-12 max-w-36">
+                    {toolList.map((tool, index) => (
+                      <div key = {index} className="flex col-span-4 md:col-span-4 lg:col-span-3 xl:col-span-2 rounded-lg bg-white shadow-md min-h-12 min-w-36 max-h-12 max-w-36">
                         <button className="skill flex p-2">
                           {tool.icon}
                           <p className="flex pl-3 self-center font-noto text-black">{tool.item}</p>

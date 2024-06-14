@@ -1,11 +1,11 @@
 "use client"
-import react from "@heroicons/react";
+import React from "@heroicons/react";
 import Image from "next/image";
 import Link from "next/link";
 
 //test
 
-const CV_File = "http://localhost:3000/Operating_Systems-16-25.pdf";
+const CV_File = "http://localhost:3000/Resume.pdf";
 
 const AboutMe = () => {
     const downloadFile = (url) => {

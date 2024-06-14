@@ -14,6 +14,7 @@ function ProjectTemplate({description, pics, title, skills}){
                             src = {pics}
                             width={500}
                             height={200}
+                            alt='picture'
                         />
                     </div>
                     <div class="project-info mt-6 mb-0">
