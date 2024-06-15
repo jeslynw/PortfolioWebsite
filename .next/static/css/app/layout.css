@@ -1773,9 +1773,6 @@ body {
   .lg\:hidden{
     display: none;
   }
-  .lg\:w-96{
-    width: 24rem;
-  }
   .lg\:grid-cols-12{
     grid-template-columns: repeat(12, minmax(0, 1fr));
   }

@@ -5,22 +5,13 @@ import Link from "next/link";
 
 //test
 
-const CV_File = "http://localhost:3000/Resume.pdf";
+const CV_File = "/Resume.pdf";
 
 const AboutMe = () => {
-    const downloadFile = (url) => {
-        fetch(url).then((response) => response.blob()).then(blob=>{
-            const blobURL = window.URL.createObjectURL(new Blob([blob]))
-            const filename = url.split("/").pop();
-            const aTag = document.createElement("a");
-            aTag.href = blobURL;
-            aTag.setAttribute("download", filename)
-            document.body.appendChild(aTag);
-            aTag.click();
-            aTag.remove();
-        })
-        
-    }
+    const OpenPDFButton = () => {
+          window.open(CV_File, '_blank');
+    };
+    
     return(
         <section id="about">
             <div className="pt-24 md:pt-28">
@@ -45,8 +36,8 @@ const AboutMe = () => {
                         <div className="flex py-3 mt-5 justify-between sm:items-center">
                             <div className="flex mb-6 sm:mb-0 place-self-center">
                                 <button className="CVButton sm:w-fit font-noto text-xs sm:text-md lg:text-base font-extrabold rounded-full bg-white  border-3 border-[#9dc5ee] text-#9dc5ee "
-                                        onClick={() => {downloadFile(CV_File)}}>
-                                    Download CV
+                                        onClick={() => {OpenPDFButton()}}>
+                                    Open CV
                                 </button>
                             </div>
                             <div className="flex">
