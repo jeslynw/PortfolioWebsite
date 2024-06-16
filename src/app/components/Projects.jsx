@@ -7,31 +7,31 @@ import ProjectTemplate from './ProjectTemplate';
 function Projects() {
     const projectList = [
         {
-         description: "My portfolio website where i share my passion, skills, experiences, and achievements.",
+         description: "My portfolio website where i share my passion, skills, experiences, and projects.",
          pics: "/images/myportfolio.png",
          title: "My Portfolio",
          skills: ["React", "Next.js", "Tailwind"]
         }, 
         {
-         description: "A web application that manages and sells property listing, leveraging B-C-E framework for an efficient architecture design. The website offers features tailored for system administrators, seller, buyer and real estate agents",   
+         description: "A web platform for real estate agents, sellers, and buyers, designed to manage and sell property listings. The website offers a wide range of features to streamline property management tasks. By incorporating the B-C-E (Boundary, Controller, Entity) framework, it ensures an optimized architecture, providing an efficient usage for all users",   
          pics: "/images/micasa.png",
-         title: "MICASA",
+         title: "Property Listing",
          skills: ["React", "Tailwind", "Flask", "SQLAlchemy"]
         },
         {
-         description: "A web application that converts sketch into 3D model, specially designed to assist designers in visualizing custom clothes for their customers. We utilized 'outline' model to transform outlines into lifelike images and 'wonder3d' model to transform these images to 3D models.",   
+         description: "A web platform that converts sketch into 3D model, specially designed to assist designers in visualizing custom clothes for their customers. We utilized 'outline' model to transform outlines into lifelike images and 'wonder3d' model to transform these images to 3D models.",   
          pics: "/images/sketch.png",
          title: "SKECH",
          skills: ["Streamlit", "Replicate", "Omnitool"]
         },
         {
-         description: "An app to verify and review the authenticity and legality of your documents, which aims to prevent signature forgery on contracts using Langcode and USIGN APIs, utilizing NodeJS for backend and ReactJS for interface",
+         description: "A web application to verify and review the authenticity and legality of your documents, which aims to prevent signature forgery on contracts using Langcode and USIGN APIs, utilizing NodeJS for backend and ReactJS for interface",
          pics: "/images/enotary.png",
          title: "E-Notary",
          skills: ["React", "Node.js"]
         },
         {
-         description: "Constructed a Python-based blockchain system integrated with PubNub to facilitated proof of work mechanism between two parties, establishing a secure network for transparent transactions.",
+         description: "A Python-based blockchain system integrated with PubNub to facilitated proof of work mechanism between two parties, establishing a secure network for transparent transactions.",
          pics: "/images/blockchain.png",
          title: "Blockchain System",
          skills: ["Python", "PubNub"]
@@ -43,7 +43,7 @@ function Projects() {
          skills: ["JavaScript", "HTML", "CSS"]
         },
         {
-         description: "Built and managed the production of UOW room booking system for staffs and students.",
+         description: "A web application tailored for UOW students and staff, designed to streamline room booking management. Students can easily book available rooms and staff can efficiently manage the room availability and schedules.",
          pics: "/images/bookingroom.png",
          title: "UOW Room Booking System",
          skills: ["JavaScript", "HTML", "CSS"]

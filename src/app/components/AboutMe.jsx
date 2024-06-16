@@ -3,8 +3,6 @@ import React from "@heroicons/react";
 import Image from "next/image";
 import Link from "next/link";
 
-//test
-
 const CV_File = "/Resume.pdf";
 
 const AboutMe = () => {
@@ -31,7 +29,9 @@ const AboutMe = () => {
                             As a student at the University of Wollongong, majoring in Cybersecurity, my fascination with technology traces back to my childhood.
                             From a young age, I found myself drawn to the intricate workings of computers and gadgets, constantly seeking to unravel their mysteries. 
                             This curiosity sparked a passion for exploring the expansive world of technology, driving me to delve deeper into its complexities.
-                            Throughout my academic journey, I have developed a keen interest in sofware development, hacking and Cybersecurity stuff. Participating in hackathons and working on personal projects have been valuable experiences as I continue to pursue my interests in these areas.                            
+                            Throughout my academic journey, I have developed a keen interest in problem-solving, sofware development, hacking and Cybersecurity stuff.
+                            In my free time, I participate in hackathons, capture-the-flag (CTF) and working on personal projects. 
+                            These experiences have been valuable as I continue to pursue my interests and build my skills in these areas.                            
                         </p>
                         <div className="flex py-3 mt-5 justify-between sm:items-center">
                             <div className="flex mb-6 sm:mb-0 place-self-center">
