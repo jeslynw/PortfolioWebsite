@@ -143,7 +143,7 @@ const AboutMe = () => {
                                 </svg>
                             </span> 
                             <h3 className="mb-1 text-[15pt] font-semibold text-gray-900 ">SMA Sutomo 1</h3>
-                            <time className="block mb-2 text-[9pt] md:text-base font-normal leading-none text-gray-400 ">Jan 2022 - Dec 2024</time>
+                            <time className="block mb-2 text-[9pt] md:text-base font-normal leading-none text-gray-500 ">Jan 2022 - Dec 2024</time>
                             {/* <p className="text-base font-normal text-gray-500"></p> */}
                         </li>
                     </ol>
