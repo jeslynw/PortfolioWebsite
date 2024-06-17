@@ -123,10 +123,10 @@ const AboutMe = () => {
                                         <li>Guided over 100 freshmen to do enrollment during Orientation and addressing inquiries</li>
                                     </ul> */}
                                 <br/>
-                                <li className="font-semibold">Participated hackathons (Go to Project section to see the projects' description)</li>
+                                <li className="font-semibold">Participated hackathons (Go to Project section to see the projects &apos; description)</li>
                                     <ul className="list-disc pl-6">
                                         <li>SKECH</li>
-                                        <li>Women's Sportswear E-Commerce</li>
+                                        <li>Women&apos;s Sportswear E-Commerce</li>
                                         <li>E-Notary</li>
                                     </ul>
                                 </ul>

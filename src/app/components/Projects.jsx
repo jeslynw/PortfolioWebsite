@@ -1,7 +1,6 @@
 "use client"
 import React, { useRef } from 'react'
 import Image from 'next/image'
-import Reveal from './Reveal';
 import ProjectTemplate from './ProjectTemplate';
 
 function Projects() {
@@ -19,7 +18,7 @@ function Projects() {
          skills: ["React", "Tailwind", "Flask", "SQLAlchemy"]
         },
         {
-         description: <>[ HACKATHON ] <br/> A web platform that converts sketch into 3D model, specially designed to assist designers in visualizing custom clothes for their customers. We utilized 'outline' model to transform outlines into lifelike images and 'wonder3d' model to transform these images to 3D models.</>,   
+         description: <>[ HACKATHON ] <br/> A web platform that converts sketch into 3D model, specially designed to assist designers in visualizing custom clothes for their customers. We utilized &apos;outline&apos; model to transform outlines into lifelike images and &apos;wonder3d&apos; model to transform these images to 3D models.</>,   
          pics: "/images/sketch.png",
          title: "SKECH",
          skills: ["Streamlit", "Replicate", "Omnitool"]
@@ -31,7 +30,7 @@ function Projects() {
          skills: ["Python", "PubNub"]
         },
         {
-         description: <>[ HACKATHON ] <br/>An e-commerce selling women's sportswear.</>,
+         description: <>[ HACKATHON ] <br/>An e-commerce selling women&apos;s sportswear.</>,
          pics: "/images/ecommerce.png",
          title: "Women's Sportswear E-Commerce",
          skills: ["JavaScript", "HTML", "CSS"]
