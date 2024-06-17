@@ -1,12 +1,11 @@
-import React from 'react'
+import React, { useState }  from 'react'
 import Image from 'next/image';
 
 
 function ProjectTemplate({description, pics, title, skills}){
     return (    
-        <div className='book flex flex-col lg:col-span-6 xl:col-span-4 mb-10 justify-center items-center font-noto w-[350px] h-[380px]'>
-            <p className='pl-12 pr-6 text-justify text-sm'>{description}
-            </p>
+        <div className={`book flex flex-col lg:col-span-6 xl:col-span-4 mb-10 justify-center items-center font-noto w-[350px] h-[380px] `}>
+            <p className='project-desc pl-12 pr-6 text-justify text-sm '>{description}</p>
             <div className='cover'>
                 <article class="article-wrapper w-[350px] h-[380px]">
                     <div class="rounded-lg container-project">
@@ -17,6 +16,7 @@ function ProjectTemplate({description, pics, title, skills}){
                             alt='picture'
                         />
                     </div>
+
                     <div class="project-info mt-6 mb-0">
                         <div class="flex-pr">
                             <div class="project-title text-wrap">{title}</div>
@@ -30,6 +30,8 @@ function ProjectTemplate({description, pics, title, skills}){
                             ))}
                         </div>  
                     </div>
+                    
+                    
                 </article>
             </div>
         </div>

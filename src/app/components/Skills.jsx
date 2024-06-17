@@ -94,9 +94,9 @@ const Skills = () => {
                   <div className="me-2">
                     <button className={`inline-block p-4 border-b-2 text-lg ${
                         activeTab === 'Tech'
-                          ? 'border-gray-800 dark:border-gray-300'
+                          ? 'border-gray-800 text-black'
                           : 'border-transparent text-gray-500'
-                      } rounded-t-lg hover:text-gray-800 dark:hover:text-gray-300`}
+                      } rounded-t-lg hover:text-gray-800 `}
                       onClick={(e) => handleTabClick(e, 'Tech')}
                     >
                       <IoMdSettings className="inline mr-2 w-max h-6"/>
@@ -107,9 +107,9 @@ const Skills = () => {
                   <div className="me-2">
                     <button className={`inline-block p-4 border-b-2 text-lg ${
                         activeTab === 'Tools'
-                          ? 'border-gray-800 dark:border-gray-300'
+                          ? 'border-gray-800 text-black'
                           : 'border-transparent text-gray-500'
-                      } rounded-t-lg hover:text-gray-800 dark:hover:text-gray-300`}
+                      } rounded-t-lg hover:text-gray-800 `}
                       onClick={(e) => handleTabClick(e, 'Tools')}
                     >
                       <FaTools className="inline mr-2 w-max h-5"/>
