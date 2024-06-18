@@ -3,7 +3,7 @@ import React from "@heroicons/react";
 import Image from "next/image";
 import Link from "next/link";
 
-const CV_File = "/Resume.pdf";
+const CV_File = "/CV.pdf";
 
 const AboutMe = () => {
     const OpenPDFButton = () => {
