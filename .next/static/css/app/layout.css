@@ -1246,9 +1246,6 @@ input[type="range"]::-ms-fill-lower{
 .mt-9{
   margin-top: 2.25rem;
 }
-.mt-12{
-  margin-top: 3rem;
-}
 .block{
   display: block;
 }
@@ -1684,10 +1681,6 @@ input[type="range"]::-ms-fill-lower{
 .text-black{
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
-}
-.text-gray-400{
-  --tw-text-opacity: 1;
-  color: rgb(156 163 175 / var(--tw-text-opacity));
 }
 .text-gray-500{
   --tw-text-opacity: 1;
