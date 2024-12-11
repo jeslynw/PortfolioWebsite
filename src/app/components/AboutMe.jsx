@@ -3,7 +3,7 @@ import React from "@heroicons/react";
 import Image from "next/image";
 import Link from "next/link";
 
-const CV_File = "/Resume.pdf";
+const CV_File = "/JeslynWangsa_resume.pdf";
 
 const AboutMe = () => {
     const OpenPDFButton = () => {
@@ -71,20 +71,20 @@ const AboutMe = () => {
                                         </span>
                                     </button>
                                 </Link>
-                                <Link href='https://www.instagram.com/jeslynw_?igsh=enZxaHIzdDc5aDlp' to="route" target="_blank">
+                                {/* <Link href='https://www.instagram.com/jeslynw_?igsh=enZxaHIzdDc5aDlp' to="route" target="_blank">
                                     <button class="instagramButton">
                                         <span class="instagramBG"></span>
                                         <span class="instagramContainer">
                                             <svg fill="white" class="svgIcon" viewBox="0 0 448 512" height="1.3em" xmlns="http://www.w3.org/2000/svg"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
                                         </span>
                                     </button>
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="flex pt-24 justify-center pl-4 md:pl-0">
-                    <ol className="relative border-s border-gray-400">     
+                <div className="flex pt-24 pl-4 md:pl-0 justify-center">
+                    <ol className="relative md:w-[750px] border-s border-gray-400">     
                         {/* SIM UOW */}
                         <li className="mb-7 ms-6">    
                             {/*academic icon*/}
@@ -96,38 +96,28 @@ const AboutMe = () => {
                                 </svg>
                             </span>
                             {/* title */}
-                            <h3 className="flex items-center mb-1 text-[15pt] font-semibold text-gray-900">SIM - University of Wollongong
-                                <span className="bg-[#6cb6ff9b] text-[#ffffff] text-sm font-medium me-2 px-2.5 py-0.5 rounded ms-7">Latest</span>
+                            <h3 className="flex items-center mb-1 text-[13pt] md:text-[15pt] font-semibold text-gray-900">University of Wollongong
+                                <span className="bg-[#6cb6ff9b] text-[#ffffff] text-base font-medium me-2 px-2.5 py-0.5 rounded ms-7">Latest</span>
                             </h3>
                             {/* time */}
-                            <time className="block mb-2 text-[9pt] md:text-base font-normal leading-none text-gray-500">Jan 2022 - Dec 2024</time>
-                            <p className="block mb-2 text-[9pt] md:text-base  font-normal leading-none text-gray-500">Bachelor of Computer Science (Cyber Security)</p>
+                            <time className="block text-[9pt] md:text-base font-normal leading-none text-gray-500">Jan 2022 - Nov 2024</time>
+                            <p className="block mb-2 text-[9pt] md:text-base font-normal leading-none text-gray-500">Bachelor of Computer Science (Cyber Security)</p>
                             {/* organization */}
                             <div className="text-gray-500 text-[9pt] md:text-base ">
                                 <ul>
-                                <li className="font-semibold ">Student Council</li>
-                                <ul className="list-disc pl-6">
-                                    <li>Planned and organized major events such as Freshmen Orientation, Social Night, Carnival etc <br/> for over 150 participants</li>
-                                    <li>Guided over 100 freshmen to do enrollment during Orientation and addressing inquiries</li>
-                                </ul>
-                                <br/>
-                                
-                                <li className="font-semibold">Photography Club</li>
-                                <ul className="list-disc pl-6">
-                                    <li>Participated in Gardens By The Bay Photowalk to capture the beauty of Singapore through <br/> photography, promoting personal artistic exploration while fostering community among participants.</li>
-                                </ul>
-
-                                    {/* <p className="text-sm "></p>
-                                    <ul className="list-disc pl-6 text-sm">
-                                        <li>Planned and organized major events such as Freshmen Orientation, Social Night, Carnival etc for over 150 participants</li>
-                                        <li>Guided over 100 freshmen to do enrollment during Orientation and addressing inquiries</li>
-                                    </ul> */}
-                                <br/>
-                                <li className="font-semibold">Participated hackathons (Go to Project section to see the projects &apos; description)</li>
-                                    <ul className="list-disc pl-6">
-                                        <li>SKECH</li>
-                                        <li>Women&apos;s Sportswear E-Commerce</li>
-                                        <li>E-Notary</li>
+                                    <li className="font-semibold ">Activities:</li>
+                                    <ul className="list-decimal pl-6">
+                                        <li className="font-semibold underline"><a href="#projects">Worked on various projects</a></li>
+                                        <li className="font-semibold underline">Participated in Hackathons</li>
+                                        <li className="font-semibold ">Organisational Experience:</li>
+                                        <ul className="list-decimal pl-6">
+                                            <li className="font-semibold">Student Council</li>
+                                                <ul className="list-disc pl-6">
+                                                    <li>Spearheaded a team of 5 committee members in planning and developing creative concepts for big events such as Freshmen Orientation and Prom Night, showcasing leadership skills, teamwork and communication to ensure their successful execution.</li>
+                                                    <li>Assisted over 100 freshmen during enrollment at orientation, addressing their inquiries and ensuring they are familiar with school resources.</li>
+                                                </ul>
+                                            <br/>
+                                        </ul>
                                     </ul>
                                 </ul>
                             </div>
@@ -143,7 +133,7 @@ const AboutMe = () => {
                                 </svg>
                             </span> 
                             <h3 className="mb-1 text-[15pt] font-semibold text-gray-900 ">SMA Sutomo 1</h3>
-                            <time className="block mb-2 text-[9pt] md:text-base font-normal leading-none text-gray-500 ">Jan 2022 - Dec 2024</time>
+                            <time className="block mb-2 text-[9pt] md:text-base font-normal leading-none text-gray-500 ">June 2019 - July 2021</time>
                             {/* <p className="text-base font-normal text-gray-500"></p> */}
                         </li>
                     </ol>

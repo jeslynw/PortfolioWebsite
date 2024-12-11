@@ -47,9 +47,9 @@ const HeroSection = () => {
                                     // Same substring at the start will only be typed out once, initially
                                     "Jeslyn Wangsa",
                                     1000,
-                                    "Majoring In Cybersecurity",
+                                    "Computer Science graduate specializing in Cybersecurity",
                                     1000, // wait 1s before replacing "Mice" with "Hamsters"
-                                    "Final year student",
+                                    "Fresh Graduate",
                                     1000,
                                 ]}
                                 wrapper="span"

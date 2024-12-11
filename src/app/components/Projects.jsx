@@ -1,10 +1,15 @@
 "use client"
 import React, { useRef } from 'react'
-import Image from 'next/image'
 import ProjectTemplate from './ProjectTemplate';
 
 function Projects() {
     const projectList = [
+        {
+        description: "A web-based dashboard system that monitors and analyzes network traffic in real time. It supports 2 types of users: Network Administrator and Management. The system detects signature-based behavior and potential threats within the network. EyeSeeYou provides actionable insights, real-time alerts, report generation, and trend analysis with machine learning to enhance threat detection and identify anomalies.",
+        pics: "/images/eyesee.png",
+        title: "Intrusion Detection System",
+        skills: ["React", "Flask", "MySQL", "Tensorflow"]
+        }, 
         {
          description: "My portfolio website where i share my passion, skills, experiences, and projects.",
          pics: "/images/myportfolio.png",
@@ -47,18 +52,6 @@ function Projects() {
             title: "E-Notary",
             skills: ["React", "Node.js"]
         },
-        // {
-        //  description: "Designed a cost effective network infrastructure for 2 schools, consider using reliable yet budget-friendly devices like managed switches for efficient VLAN implementation, implementing IP subnetting and packet analysis through Wireshark for enhanced security and optimal performance.",
-        //  pics: "",
-        //  title: "School's Network Infrastructure",
-        //  skills: ["Wireshark"]
-        // },
-        // {
-        //  description: "Developed a mini game about choosing the number according to the target number.",
-        //  pics: "",
-        //  title: "Choose The Correct Number Game",
-        //  skills: ["Javascript", "HTML", "CSS"]
-        // }
     ]
 
   return (
