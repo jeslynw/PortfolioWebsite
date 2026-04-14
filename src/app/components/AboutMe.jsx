@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 const AboutMe = () => {
     const OpenPDFButton = () => {
-          window.open("https://drive.google.com/file/d/1jo5W1FS6tlif-uusG3zRNZm7qDyZ7TSe/view?usp=sharing", '_blank');
+          window.open("https://drive.google.com/file/d/1Rk5457XcdItHtYzDjnCcT5_cBvNzRz7G/view?usp=drive_link", '_blank');
     };
     
     return(
