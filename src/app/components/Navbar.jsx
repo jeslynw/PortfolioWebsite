@@ -8,23 +8,23 @@ import MenuOverlay from './MenuOverlay';
 const navlink = [
     {
         title: "Home",
-        path: "#home",
+        path: "/#home",
     },
     {
         title: "About",
-        path: "#about",
+        path: "/#about",
     },
     {
         title: "Skills",
-        path: "#skills",
+        path: "/#skills",
     },
     {
         title: "Projects",
-        path: "#projects",
+        path: "/#projects",
     },
     {
         title: "Contact",
-        path: "#contact",
+        path: "/#contact",
     },
 ]
 
@@ -34,12 +34,12 @@ const Navbar = () => {
 
     return (
         <nav className='fixed top-0 left-0 right-0 z-10 bg-[#c8c4f4] bg-opacity-100'>
-            <div className='flex flex-wrap sm:h-24 h-20 items-center outline outline-2 sm:outline-none outline-[#b9b4f3] justify-between px-10 sm:px-20 mx-auto'>
+            <div className='flex flex-wrap sm:h-24 h-20 items-center outline outline-2 sm:outline-none outline-[#b9b4f3] justify-between px-6 sm:px-12 mx-auto'>
                 <Link href="/" className="text-white font-noto sm:text-2xl text-xl">
                     <svg className='w-7 h-7 sm:w-8 sm:h-8 flex flex-col absolute' xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15a4.5 4.5 0 0 0 4.5 4.5H18a3.75 3.75 0 0 0 1.332-7.257 3 3 0 0 0-3.758-3.848 5.25 5.25 0 0 0-10.233 2.33A4.502 4.502 0 0 0 2.25 15Z" />
                     </svg>
-                    <span className='m-12'>JW.</span>
+                    <span className='ms-10'>JW.</span>
                 </Link>
                 <div className='mobile-menu block  md:hidden lg:hidden'> 
                     {!hamburgerOpen ? (
@@ -57,7 +57,7 @@ const Navbar = () => {
                     )}
                 </div>
                 <div className='menu hidden md:block md:w-auto id="navbar" font-noto text-white'>
-                    <ul className='flex lg:p-4 md:p-0 md:flex-row space-x-12 text-lg'>
+                    <ul className='flex lg:p-4 md:p-0 md:flex-row space-x-8 text-lg'>
                         {
                             navlink.map((link, index) => (
                                 <li key={index}>

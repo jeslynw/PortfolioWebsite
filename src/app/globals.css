@@ -152,8 +152,8 @@ body {
   }
   
   .linkedInButton {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -261,7 +261,7 @@ body {
   
 
   /* projects card */
-  .article-wrapper {
+  /* .article-wrapper {
     -webkit-transition: 0.15s all ease-in-out;
     transition: 0.15s all ease-in-out;
     border-radius: 10px;
@@ -285,14 +285,13 @@ body {
     display: -ms-flexbox;
     display: flex;
     place-content: flex-start;
-  }
+  } */
   
-  .rounded-lg {
-   /* class tailwind */
+  /* .rounded-lg {
     border-radius: 10px;
-  }
+  } */
   
-  .article-wrapper:hover .project-hover {
+  /* .article-wrapper:hover .project-hover {
     -webkit-transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
     transform: rotate(-45deg);
@@ -312,14 +311,11 @@ body {
   }
   
   .project-title {
-    /* font-size: 24px; */
     word-spacing: 0.01cm;
     margin: 0;
     font-weight: 600;
-   /* depend de la font */
     overflow: hidden;
     text-overflow: ellipsis;
-    /* white-space: nowrap; */
     color: black;
   }
 
@@ -367,13 +363,12 @@ body {
   .container-project {
     width: 100%;
     height: 200px;
-    /* background: gray; */
   }
-  
+   */
 
 
   /* book */
-  .book {
+  /* .book {
     position: relative;
     border-radius: 10px;
     width: 320px;
@@ -426,7 +421,7 @@ body {
     -webkit-transform: rotatey(-80deg);
     -ms-transform: rotatey(-80deg);
     transform: rotatey(-80deg);
-  }
+  } */
 
   /* skills */
   .content {
@@ -434,7 +429,8 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     gap: 15px;
-    width: 500px;
+    width: 100%;
+    max-width: 500px;
     height: 150px;
     position: relative;
     overflow: hidden;

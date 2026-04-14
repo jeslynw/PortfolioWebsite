@@ -13,7 +13,7 @@ export default function Home() {
       <body>
         <main className="flex min-h-screen flex-col bg-[#ffd6e4] overflow-hidden">
           <Navbar />
-          <div className="container mt-24 mx-auto px-7 py-4">
+          <div className="container mt-20 sm:mt-24 mx-auto px-4 sm:px-8 md:px-14 py-4">
             <HeroSection />
             <CloudDecoration />
             <AboutMe />

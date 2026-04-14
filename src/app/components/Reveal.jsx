@@ -1,45 +1,33 @@
-import React from 'react'
-import { useEffect, useRef } from 'react'
+"use client"
+import React, { useEffect, useRef } from 'react'
 import { motion, useInView, useAnimation } from "framer-motion"
 
-const transitions = {
-    hidden: {
-        y: 75,
-        opacity: 0,
-        
-    },
-    visible:{
-        y: 0,
-        opacity: 1,
-    },
-    
-}
-
-
-const Reveal = () => {
-    const scrollRef  = useRef(null);
-    const isInView = useInView(scrollRef, {once:true});
-
-    const mainControls = useAnimation();
+const Reveal = ({ children, delay = 0 }) => {
+    const ref = useRef(null)
+    const isInView = useInView(ref, { once: true, margin: "-60px" })
+    const controls = useAnimation()
 
     useEffect(() => {
-        if (isInView){
-            mainControls.start("visible");
+        if (isInView) {
+            controls.start("visible")
         }
-    }, [isInView]);
+    }, [isInView, controls])
 
-  return (
-    <div ref={scrollRef} style={{position:"relative"}}>
-        <motion.div 
-            variants={transitions} 
-            initial="hidden"
-            animate="visible"
-            transition={{duration: 0.5, delay: 0.25, ease:"easeIn"}}
-        >
-            {/* {Children} */}
-        </motion.div>    
-    </div>
-  )
+    return (
+        <div ref={ref}>
+            <motion.div
+                variants={{
+                    hidden: { opacity: 0, y: 48 },
+                    visible: { opacity: 1, y: 0 },
+                }}
+                initial="hidden"
+                animate={controls}
+                transition={{ duration: 0.5, delay, ease: "easeOut" }}
+            >
+                {children}
+            </motion.div>
+        </div>
+    )
 }
 
 export default Reveal

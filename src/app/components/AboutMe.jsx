@@ -2,40 +2,64 @@
 import React from "@heroicons/react";
 import Image from "next/image";
 import Link from "next/link";
-
-const CV_File = "/JeslynWangsa_resume.pdf";
+import { motion } from "framer-motion";
 
 const AboutMe = () => {
     const OpenPDFButton = () => {
-          window.open(CV_File, '_blank');
+          window.open("https://drive.google.com/file/d/1jo5W1FS6tlif-uusG3zRNZm7qDyZ7TSe/view?usp=sharing", '_blank');
     };
     
     return(
         <section id="about">
-            <div className="pt-24 md:pt-28">
-                <h1 className="text-white text-5xl sm:text-5xl 2xl:text-6xl font-alegreya pb-14">About Me</h1>
+            <div className="pt-16 md:pt-20">
+                <motion.h1
+                    className="text-white text-5xl sm:text-5xl 2xl:text-6xl font-alegreya pb-8 md:pb-10"
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.6, ease: "easeOut" }}
+                >
+                    About Me
+                </motion.h1>
                 <div className="grid grid-cols-1 sm:grid-cols-12">
-                    <div className="col-span-3 flex flex-col items-center relative mb-10">
+                    <motion.div
+                        className="col-span-3 flex flex-col items-center relative mb-10"
+                        initial={{ opacity: 0, x: -50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-60px" }}
+                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                    >
                         <Image 
-                            className="rounded-3xl shadow-lg sm:left-0"
-                            src = "/images/b.jpg"
+                            className="rounded-xl shadow-lg sm:left-0"
+                            src = "/images/jw.jpg"
                             alt = "my picture"
-                            width = {250}
-                            height = {180}
+                            width = {180}
+                            height = {200}
                         />
-                    </div>
-                    <div className="col-span-9 text-black relative place-items-center sm:pl-10 2xl:pl-0 m-0">
+                    </motion.div>
+                    <motion.div
+                        className="col-span-9 text-black relative place-items-center sm:pl-10 2xl:pl-0 m-0"
+                        initial={{ opacity: 0, x: 50 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true, margin: "-60px" }}
+                        transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+                    >
                         <p className="font-noto text-sm sm:text-md lg:text-lg text-justify">
-                            As a student at the University of Wollongong, majoring in Cybersecurity, my fascination with technology traces back to my childhood.
-                            From a young age, I found myself drawn to the intricate workings of computers and gadgets, constantly seeking to unravel their mysteries. 
-                            This curiosity sparked a passion for exploring the expansive world of technology, driving me to delve deeper into its complexities.
-                            Throughout my academic journey, I have developed a keen interest in problem-solving, sofware development, hacking and Cybersecurity stuff.
-                            In my free time, I participate in hackathons, capture-the-flag (CTF) and working on personal projects. 
-                            These experiences have been valuable as I continue to pursue my interests and build my skills in these areas.                            
+                            I first became interested in computers back in high school, where I found myself drawn to clean, well-designed user interfaces. 
+                            I was curious about how websites were built and what happened behind the scenes to make everything work. 
+                            That curiosity led me to pursue a Bachelor's degree in Computer Science.
+                            <br />
+                            <br />
+                            As I started working on more complex problems, I realized the usual ways of solving things weren’t always enough. That’s when I got into machine learning.
+                            It felt like a more practical way to deal with messy, real-world problems.
+                            <br />
+                            <br />
+                            Now, I’m pursuing a Master’s degree in Artificial Intelligence at Singapore Management University. I’ve worked on projects that combine machine learning with real applications, 
+                            I enjoy working across both the technical and design sides, building something that works well, looks clean, and actually solves a problem.
                         </p>
                         <div className="flex py-3 mt-5 justify-between sm:items-center">
-                            <div className="flex mb-6 sm:mb-0 place-self-center">
-                                <button className="CVButton sm:w-fit font-noto text-xs sm:text-md lg:text-base font-extrabold rounded-full bg-white  border-3 border-[#9dc5ee] text-#9dc5ee "
+                            <div className="flex mb-6 mx-4 sm:mb-0 place-self-center">
+                                <button className="CVButton sm:w-fit font-noto text-xs sm:text-md lg:text-base font-extrabold rounded-full bg-white  border-3 border-[#9dc5ee] text-#9dc5ee"
                                         onClick={() => {OpenPDFButton()}}>
                                     Open CV
                                 </button>
@@ -81,63 +105,98 @@ const AboutMe = () => {
                                 </Link> */}
                             </div>
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
-                <div className="flex pt-24 pl-4 md:pl-0 justify-center">
-                    <ol className="relative md:w-[750px] border-s border-gray-400">     
-                        {/* SIM UOW */}
-                        <li className="mb-7 ms-6">    
-                            {/*academic icon*/}
-                            <span className="absolute flex items-center justify-center bg-[#ffffff] rounded-full -start-3 ring-4 ring-[#ffffff] mt-1">
+                <motion.div
+                    className="flex pt-12 md:pt-16 pl-4 md:pl-0 justify-center"
+                    initial={{ opacity: 0, y: 48 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+                >
+                    <ol className="relative w-full md:max-w-[750px] border-s border-[#6cb6ff]">
+                        {/* SMU */}
+                        <motion.li
+                            className="mb-7 ms-6"
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-40px" }}
+                            transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
+                        >    
+                            {/* Academic icon */}
+                            <span className="absolute flex items-center justify-center bg-[#dbeafe] rounded-full -start-3 ring-4 ring-[#f0f7ff] mt-1">
                                 <svg className="w-5 h-5 text-[#6cb6ff] size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
                                     <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
                                     <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
                                 </svg>
                             </span>
-                            {/* title */}
-                            <h3 className="flex items-center mb-1 text-[13pt] md:text-[15pt] font-semibold text-gray-900">University of Wollongong
-                                <span className="bg-[#6cb6ff9b] text-[#ffffff] text-base font-medium me-2 px-2.5 py-0.5 rounded ms-7">Latest</span>
-                            </h3>
-                            {/* time */}
-                            <time className="block text-[9pt] md:text-base font-normal leading-none text-gray-500">Jan 2022 - Nov 2024</time>
-                            <p className="block mb-2 text-[9pt] md:text-base font-normal leading-none text-gray-500">Bachelor of Computer Science (Cyber Security)</p>
-                            {/* organization */}
-                            <div className="text-gray-500 text-[9pt] md:text-base ">
-                                <ul>
-                                    <li className="font-semibold ">Activities:</li>
-                                    <ul className="list-decimal pl-6">
-                                        <li className="font-semibold underline"><a href="#projects">Worked on various projects</a></li>
-                                        <li className="font-semibold underline">Participated in Hackathons</li>
-                                        <li className="font-semibold ">Organisational Experience:</li>
-                                        <ul className="list-decimal pl-6">
-                                            <li className="font-semibold">Student Council</li>
-                                                <ul className="list-disc pl-6">
-                                                    <li>Spearheaded a team of 5 committee members in planning and developing creative concepts for big events such as Freshmen Orientation and Prom Night, showcasing leadership skills, teamwork and communication to ensure their successful execution.</li>
-                                                    <li>Assisted over 100 freshmen during enrollment at orientation, addressing their inquiries and ensuring they are familiar with school resources.</li>
-                                                </ul>
-                                            <br/>
-                                        </ul>
-                                    </ul>
-                                </ul>
-                            </div>
-                        </li>
 
-                        {/* SMA Sutomo */}
-                        <li className="mb-10 ms-6">
-                            <span className="absolute flex items-center justify-center bg-[#ffffff] rounded-full -start-3 ring-4 ring-[#ffffff] mt-1">
-                                <svg className="w-5 h-5 text-[#6cb6ff] size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" >
+                            {/* Card */}
+                            <div className="bg-white/70 rounded-xl p-4 shadow-sm border border-gray-100">
+                                {/* Title */}
+                                <h3 className="flex items-center mb-2 text-lg md:text-xl font-semibold text-gray-900">
+                                    Singapore Management University (SMU)
+                                    <span className="bg-[#6cb6ff9b] text-white text-sm font-medium ms-4 px-2 py-0.5 rounded">Latest</span>
+                                </h3>
+
+                                {/* Time */}
+                                <time className="inline-flex items-center mb-3 text-xs font-medium bg-[#e8f4ff] text-[#4a90d9] px-3 py-1 rounded-full">Aug 2025 – Ongoing</time>
+
+                                {/* Degree */}
+                                <p className="mb-2 text-sm md:text-base font-semibold text-gray-700">
+                                    Master of IT in Business (MITB) in Artificial Intelligence (AI) Track
+                                </p>
+
+                                {/* Coursework */}
+                                <p className="text-xs uppercase tracking-wide text-gray-400 font-semibold mb-1">Coursework</p>
+                                <p className="text-sm text-gray-500">Data Science, Machine Learning, Statistical Thinking, Database Optimization, Agentic AI, Generative AI, Applied Machine Learning</p>
+                            </div>
+                        </motion.li>
+                        {/* SIM UOW */}
+                        <motion.li
+                            className="mb-7 ms-6"
+                            initial={{ opacity: 0, x: -30 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true, margin: "-40px" }}
+                            transition={{ duration: 0.5, ease: "easeOut", delay: 0.3 }}
+                        >    
+                            {/*academic icon*/}
+                            <span className="absolute flex items-center justify-center bg-[#dbeafe] rounded-full -start-3 ring-4 ring-[#f0f7ff] mt-1">
+                                <svg className="w-5 h-5 text-[#6cb6ff] size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
                                     <path d="M11.7 2.805a.75.75 0 0 1 .6 0A60.65 60.65 0 0 1 22.83 8.72a.75.75 0 0 1-.231 1.337 49.948 49.948 0 0 0-9.902 3.912l-.003.002c-.114.06-.227.119-.34.18a.75.75 0 0 1-.707 0A50.88 50.88 0 0 0 7.5 12.173v-.224c0-.131.067-.248.172-.311a54.615 54.615 0 0 1 4.653-2.52.75.75 0 0 0-.65-1.352 56.123 56.123 0 0 0-4.78 2.589 1.858 1.858 0 0 0-.859 1.228 49.803 49.803 0 0 0-4.634-1.527.75.75 0 0 1-.231-1.337A60.653 60.653 0 0 1 11.7 2.805Z" />
                                     <path d="M13.06 15.473a48.45 48.45 0 0 1 7.666-3.282c.134 1.414.22 2.843.255 4.284a.75.75 0 0 1-.46.711 47.87 47.87 0 0 0-8.105 4.342.75.75 0 0 1-.832 0 47.87 47.87 0 0 0-8.104-4.342.75.75 0 0 1-.461-.71c.035-1.442.121-2.87.255-4.286.921.304 1.83.634 2.726.99v1.27a1.5 1.5 0 0 0-.14 2.508c-.09.38-.222.753-.397 1.11.452.213.901.434 1.346.66a6.727 6.727 0 0 0 .551-1.607 1.5 1.5 0 0 0 .14-2.67v-.645a48.549 48.549 0 0 1 3.44 1.667 2.25 2.25 0 0 0 2.12 0Z" />
                                     <path d="M4.462 19.462c.42-.419.753-.89 1-1.395.453.214.902.435 1.347.662a6.742 6.742 0 0 1-1.286 1.794.75.75 0 0 1-1.06-1.06Z" />
                                 </svg>
-                            </span> 
-                            <h3 className="mb-1 text-[15pt] font-semibold text-gray-900 ">SMA Sutomo 1</h3>
-                            <time className="block mb-2 text-[9pt] md:text-base font-normal leading-none text-gray-500 ">June 2019 - July 2021</time>
-                            {/* <p className="text-base font-normal text-gray-500"></p> */}
-                        </li>
+                            </span>
+                            {/* Card */}
+                            <div className="bg-white/70 rounded-xl p-4 shadow-sm border border-gray-100">
+                                {/* University of Wollongong */}
+                                <h3 className="flex items-center mb-2 text-lg md:text-xl font-semibold text-gray-900">University of Wollongong</h3>
+
+                                <time className="inline-flex items-center mb-3 text-xs font-medium bg-[#e8f4ff] text-[#4a90d9] px-3 py-1 rounded-full">Jan 2022 – Dec 2024</time>
+
+                                <p className="mb-2 text-sm md:text-base font-semibold text-gray-700">Bachelor of Computer Science (Cybersecurity)</p>
+
+                                {/* Coursework */}
+                                <p className="text-xs uppercase tracking-wide text-gray-400 font-semibold mb-1">Coursework</p>
+                                <p className="text-sm text-gray-500 mb-3">Software Development, IT Project Management, Data Management & Security, Cybersecurity, Ethical Hacking, System Security, Data Mining, Network & Communications</p>
+
+                                <hr className="border-t border-gray-100 my-3" />
+
+                                {/* Activities */}
+                                <p className="text-xs uppercase tracking-wide text-gray-400 font-semibold mb-1">Activities</p>
+                                <p className="text-sm text-gray-500 mb-3">Participated in Hackathons</p>
+                                <p className="text-sm text-gray-500">
+                                    <span className="font-medium text-gray-700">Student Council</span> - Led a team to plan and organize Freshmen Orientation and Prom Night, assisted 150+ participants and strengthening club visibility, member participation, and overall event quality.
+                                </p>
+                                
+                            </div>
+
+                        </motion.li>
+
                     </ol>
-                </div>
+                </motion.div>
             </div>
         </section>
     )

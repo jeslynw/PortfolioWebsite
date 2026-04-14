@@ -37,19 +37,18 @@ const HeroSection = () => {
         <section className="home">  
             <div className="card xl:grid grid-cols-1 sm:grid-cols-12 shadow-lg mt-7">
                 <motion.div variants={transitions} initial="initial" animate="animate" className="col-span-7 px-5 lg:text-left lg:mt-8">
-                    <motion.div variants={transitions} className="h-60">
+                    <motion.div variants={transitions} className="min-h-[200px] md:min-h-[240px]">
                         <motion.h1 variants={transitions} className="mb-4 text-4xl sm:text-5xl 2xl:text-6xl font-alegreya font-extrabold text-[#9dc5ee]">
                             <motion.span variants={transitions} className="text-white flex-auto leading-loose">Hello, I&apos;m</motion.span>
                             <br></br>
                             <TypeAnimation
                                 sequence={[
                                     1500,
-                                    // Same substring at the start will only be typed out once, initially
                                     "Jeslyn Wangsa",
                                     1000,
-                                    "Computer Science graduate specializing in Cybersecurity",
-                                    1000, // wait 1s before replacing "Mice" with "Hamsters"
-                                    "Fresh Graduate",
+                                    "passionate about AI and software design",
+                                    1000, 
+                                    "always learning something new",
                                     1000,
                                 ]}
                                 wrapper="span"
@@ -61,8 +60,8 @@ const HeroSection = () => {
                         </motion.h1>
                     </motion.div>
 
-                    <motion.p variants={transitions} className="text-black text-sm font-noto sm:text-base lg:text-lg mb-6 mt-15 sm:mt-5 pb-5 leading-relaxed text-justify">
-                        I am immersed in the world of technology, honing my skills and knowledge as I pursue my bachelor&apos;s degree. I am passionately building a portfolio website to share my expertise and achievements. 
+                    <motion.p variants={transitions} className="text-black text-sm font-noto sm:text-base lg:text-lg mb-6 mt-4 sm:mt-5 pb-5 leading-relaxed text-justify">
+                        I&apos;m immersed in the world of technology, learning and growing every day. I&apos;m building this portfolio to share my work, skills, and journey. 
                         Step into my digital domain and explore the journey with me! 
                     </motion.p> 
 
