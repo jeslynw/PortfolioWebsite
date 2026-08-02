@@ -118,6 +118,13 @@ export default function Currently() {
       <div className="grid grid-cols-[25%_50%_25%] items-start gap-3 max-[900px]:grid-cols-2 max-[580px]:grid-cols-1">
         <Reveal delay={0.08} className="min-w-0 grid gap-3">
           <ArticleCard article={article} />
+          
+          <blockquote className="rounded-r-[5px] border-l-2 border-sage-mid bg-sage-50 px-4 py-[14px]">
+            <p className="mb-2 font-hand text-[1.0625rem] italic leading-[1.55] text-ink">
+              &ldquo;{quote.text}&rdquo;
+            </p>
+            {/* <span className="text-[0.6875rem] text-faint">&mdash; {quote.by}</span> */}
+          </blockquote>
         </Reveal>
 
         <Reveal delay={0.12} className="min-w-0 grid gap-3">
@@ -168,13 +175,6 @@ export default function Currently() {
 
         <Reveal delay={0.16} className="min-w-0 grid gap-3">
           <NowPlaying embed={spotifyEmbed} />
-
-          <blockquote className="rounded-r-[5px] border-l-2 border-sage-mid bg-sage-50 px-4 py-[14px]">
-            <p className="mb-2 font-hand text-[1.0625rem] italic leading-[1.55] text-ink">
-              &ldquo;{quote.text}&rdquo;
-            </p>
-            <span className="text-[0.6875rem] text-faint">&mdash; {quote.by}</span>
-          </blockquote>
         </Reveal>
       </div>
     </section>

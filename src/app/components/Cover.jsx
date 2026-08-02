@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { TypeAnimation } from "react-type-animation";
 import { useReducedMotion } from "framer-motion";
 import { profile } from "@/app/data/site";
@@ -36,15 +35,8 @@ export default function Cover() {
   return (
     <section id="cover" className="scroll-mt-14 pt-0">
       <Enter>
-        <div className="relative -mt-[34px] mb-3 h-[66px] w-[66px] overflow-hidden rounded-[10px] border-[3px] border-page shadow-soft">
-          <Image
-            src="/images/bitmoji.png"
-            alt="Jeslyn Wangsa"
-            fill
-            sizes="66px"
-            className="object-cover"
-            priority
-          />
+        <div className="relative -mt-[34px] mb-3 grid h-[66px] w-[66px] place-items-center overflow-hidden rounded-[10px] border-[3px] border-page bg-sage-50 shadow-soft">
+          <span className="text-[2.5rem] leading-none" role="img" aria-label="Jeslyn Wangsa">🦒</span>
         </div>
       </Enter>
 
@@ -100,7 +92,6 @@ export default function Cover() {
           <Figure
             src="/images/jw.jpg"
             alt="Jeslyn Wangsa"
-            caption="that’s me, roughly"
             className="max-[900px]:max-w-[208px]"
           />
         </div>
