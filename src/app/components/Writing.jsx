@@ -3,10 +3,10 @@ import { Mark, Reveal, SectionHead } from "./ui";
 const articles = [
   {
     title: "Building Dumpling: An Agentic RAG System for Personal Knowledge Management",
-    url: "https://medium.com/@YOUR_HANDLE/your-article-slug",
+    url: "https://medium.com/mitb-for-all/dumpling-an-agentic-rag-system-that-organizes-your-notes-for-you-3fb6b62b6b35",
     tag: "Agentic AI",
     date: "2025",
-    blurb: "How I built a retrieval system that corrects itself — from chunking strategy to agentic loops.",
+    blurb: "How I built a retrieval system that corrects itself - from chunking strategy to agentic loops.",
   },
 ];
 

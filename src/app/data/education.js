@@ -43,9 +43,8 @@ export const educationList = [
     hackathon: {
       lead: "Hackathon",
       text: [
-        "UOL club - Online Retail Platform Hackathon ",
-        "Your second bullet point here",
-        "Your third bullet point here",
+        "UOL club - Online Retail Platform",
+        "Appetize 2022, NAVER Cloud - Web-based signature identification and verification processes",
       ],
     },
   },
