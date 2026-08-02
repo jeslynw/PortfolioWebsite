@@ -1,11 +1,24 @@
-import { Inter } from "next/font/google";
+import { JetBrains_Mono, Spectral } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  display: "swap",
+});
+
+const hand = Spectral({
+  subsets: ["latin"],
+  weight: ["400", "600"],
+  style: ["normal", "italic"],
+  variable: "--font-hand",
+  display: "swap",
+});
 
 export const metadata = {
-  title: "My Portfolio",
-  description: "Welcome",
+  title: "Jeslyn Wangsa — Portfolio",
+  description:
+    "Jeslyn Wangsa — MITB (AI) at Singapore Management University. Projects in agentic AI, applied machine learning, and web systems.",
   icons: {
     icon: "/images/bitmoji.png",
   },
@@ -13,8 +26,8 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="en" data-theme="light" suppressHydrationWarning className={`${mono.variable} ${hand.variable}`}>
+      <body className="font-mono">{children}</body>
     </html>
   );
 }

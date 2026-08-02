@@ -9,6 +9,7 @@ export const projectList = [
         skills: ["RAG", "LangChain/LangGraph", "Agentic AI", "Docling", "WebBaseLoader", "Tavily", "GPT-4o-mini", "text-embedding-3-small", "React", "FastAPI" , "Qdrant"],
         achievement: "Ranked 1st in Class · Achieved A+ Score",
         link: "https://github.com/jeslynw/Dumpling",
+        mediumLink: "https://medium.com/@YOUR_HANDLE/your-article-slug",
     },
     {
         number: "02",

@@ -1,134 +1,256 @@
-"use client"
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { projectList } from "@/app/data/projects"
-import ProjectImageCarousel from "@/app/components/ProjectImageCarousel"
+"use client";
 
-function ProjectCard({ project, index }) {
-    return (
-        <motion.div
-            className="bg-white rounded-[20px] overflow-hidden grid grid-cols-1 md:grid-cols-[3fr_2fr]
-                       shadow-[0_8px_32px_rgba(157,197,238,0.18)]
-                       hover:shadow-[0_12px_40px_rgba(157,197,238,0.35)] transition-shadow duration-300"
-            initial={{ opacity: 0, y: 48 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.5, delay: index * 0.12, ease: "easeOut" }}
-        >
-            {/* LEFT: content */}
-            <div className="p-7 sm:p-9 flex flex-col justify-between gap-6">
-                <div>
-                    {/* Header: number left, year + achievement right */}
-                    <div className="flex items-start gap-4 mb-4">
-                        {/* Number badge */}
-                        <div className="w-10 h-10 shrink-0 rounded-full border-2 border-[#9dc5ee] flex items-center justify-center">
-                            <span className="font-alegreya text-lg   font-bold text-[#9dc5ee]">{project.number}</span>
-                        </div>
-                        {/* Meta stack */}
-                        <div className="flex flex-col gap-1.5 pt-0.5">
-                            <p className="font-noto text-xs text-gray-400 uppercase tracking-widest">
-                                {project.year} &bull; {project.category}
-                            </p>
-                            {project.achievement && (
-                                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full
-                                                bg-amber-50 border border-amber-200 text-amber-600
-                                                font-noto text-xs font-semibold w-fit">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                                        <path fillRule="evenodd" d="M5.166 2.621v.858c-1.035.148-2.059.33-3.071.543a.75.75 0 0 0-.584.859 6.753 6.753 0 0 0 6.138 5.6 6.73 6.73 0 0 0 2.743 1.346A6.707 6.707 0 0 1 9.279 15H8.54c-1.036 0-1.875.84-1.875 1.875V19.5h-.75a2.25 2.25 0 0 0-2.25 2.25c0 .414.336.75.75.75h15a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-2.25-2.25h-.75v-2.625c0-1.036-.84-1.875-1.875-1.875h-.739a6.706 6.706 0 0 1-1.112-3.173 6.73 6.73 0 0 0 2.743-1.347 6.753 6.753 0 0 0 6.139-5.6.75.75 0 0 0-.585-.858 47.077 47.077 0 0 0-3.07-.543V2.62a.75.75 0 0 0-.658-.744 49.798 49.798 0 0 0-6.093-.377c-2.063 0-4.096.128-6.093.377a.75.75 0 0 0-.657.744Zm0 2.629c0 1.196.312 2.32.857 3.294A5.266 5.266 0 0 1 3.16 5.337a45.6 45.6 0 0 1 2.006-.343v.256Zm13.5 0v-.256c.674.1 1.343.214 2.006.343a5.265 5.265 0 0 1-2.863 3.207 6.72 6.72 0 0 0 .857-3.294Z" clipRule="evenodd" />
-                                    </svg>
-                                    {project.achievement}
-                                </div>
-                            )}
-                        </div>
-                    </div>
+import { useState } from "react";
+import Link from "next/link";
+import { projectList } from "@/app/data/projects";
+import ProjectImageCarousel from "./ProjectImageCarousel";
+import Lightbox from "./Lightbox";
+import { ArrowLink, Chip, Reveal, SectionHead } from "./ui";
 
-                    {/* Title */}
-                    <h2 className="font-alegreya text-xl sm:text-2xl font-bold text-gray-900 mb-3 leading-snug">
-                        {project.title}
-                    </h2>
+const VISIBLE = 3;
 
-                    {/* Description — capped at 3 lines on homepage */}
-                    <p className="font-noto text-sm text-gray-500 leading-relaxed line-clamp-3">
-                        {project.description}
-                    </p>
-                </div>
-
-                <div>
-                    {/* Skill tags */}
-                    {project.skills[0] !== "" && (
-                        <div className="flex flex-wrap gap-2 mb-5">
-                            {project.skills.map((skill, i) => (
-                                <span
-                                    key={i}
-                                    className="px-3 py-1 rounded-full text-xs font-noto bg-[#eaf3fc] text-[#6cb6ff] border border-[#9dc5ee]/30"
-                                >
-                                    {skill}
-                                </span>
-                            ))}
-                        </div>
-                    )}
-
-                    {/* CTA */}
-                    {project.link ? (
-                        <a
-                            href={project.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full
-                                       border border-[#9dc5ee] font-noto text-xs font-semibold uppercase
-                                       tracking-widest text-[#6cb6ff] hover:bg-[#9dc5ee] hover:text-white
-                                       transition-all duration-200"
-                        >
-                            View Full Project &rarr;
-                        </a>
-                    ) : (
-                        <span className="font-noto text-xs font-semibold uppercase tracking-widest text-gray-300 select-none">
-                            {/* Private / In Progress */}
-                        </span>
-                    )}
-                </div>
-            </div>
-
-            {/* RIGHT: image gallery */}
-            <div className="relative h-64 md:h-auto min-h-[220px] rounded-b-[20px] md:rounded-b-none md:rounded-r-[20px] overflow-hidden">
-                <ProjectImageCarousel pics={project.pics} title={project.title} />
-            </div>
-        </motion.div>
-    )
+function linkLabel(href) {
+  return href.includes("github.com") ? "See the code" : "Read the write-up";
 }
 
-function Projects() {
-    const featured = projectList.slice(0, 3)
+function GalleryCard({ project, delay, onImageClick }) {
+  const { number, year, category, title, description, pics, skills, achievement, link, mediumLink } = project;
 
-    return (
-        <section id="projects">
-            <h1 className="text-white text-5xl sm:text-5xl 2xl:text-6xl font-alegreya pt-16 md:pt-20 pb-8 md:pb-10">
-                Projects
-            </h1>
+  return (
+    <Reveal
+      delay={delay}
+      className="group/card flex flex-col gap-2.5 rounded-[7px] border border-line bg-card px-[9px] pb-[15px] pt-[9px] transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-[3px] hover:border-sage-200 hover:shadow-lift"
+    >
+      <div
+        className="relative aspect-[16/10] cursor-pointer overflow-hidden rounded-[4px] border border-line-soft bg-sage-50"
+        onClick={() => onImageClick(pics, 0)}
+      >
+        <ProjectImageCarousel pics={pics} title={title} variant="card" />
+        {pics.length > 1 && (
+          <span className="pointer-events-none absolute right-1.5 top-1.5 z-10 rounded-[3px] bg-[rgba(0,0,0,0.55)] px-1.5 py-px text-[0.625rem] text-white">
+            Click to view
+          </span>
+        )}
+      </div>
 
-            <div className="flex flex-col gap-8 xl:px-14">
-                {featured.map((project, index) => (
-                    <ProjectCard key={project.number} project={project} index={index} />
-                ))}
-            </div>
+      <div className="flex flex-1 flex-col gap-2 px-1.5">
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-[0.6875rem] font-bold text-sage-ink tnum">{number}</span>
+          <span className="text-[0.6875rem] text-faint tnum">{year}</span>
+          {achievement && (
+            <Chip tone="sakura" wrap>
+              {achievement}
+            </Chip>
+          )}
+        </div>
 
-            {/* Show More */}
-            <div className="flex justify-center mt-8 mb-12">
-                <Link href="/projects">
-                    <motion.span
-                        className="inline-flex items-center gap-2 px-8 py-3 rounded-full
-                                   border-2 border-[#9dc5ee] font-noto text-sm font-semibold uppercase
-                                   tracking-widest text-[#9dc5ee] bg-white/60
-                                   hover:bg-[#9dc5ee] hover:text-white transition-all duration-300 cursor-pointer"
-                        whileHover={{ scale: 1.04 }}
-                        whileTap={{ scale: 0.97 }}
-                    >
-                        Show More Projects &rarr;
-                    </motion.span>
-                </Link>
-            </div>
-        </section>
-    )
+        <h3 className="text-[0.8125rem] font-bold leading-[1.45] text-ink">{title}</h3>
+
+        <p className="clamp-3 m-0 font-sans text-[0.8125rem] text-muted">{description}</p>
+
+        <div className="flex flex-wrap gap-1.5">
+          {skills.filter(Boolean).map((skill) => (
+            <Chip key={skill}>{skill}</Chip>
+          ))}
+        </div>
+
+        <div className="mt-auto flex flex-wrap items-center gap-2.5 pt-1">
+          {link ? (
+            <ArrowLink href={link}>{linkLabel(link)}</ArrowLink>
+          ) : (
+            <span className="text-[0.6875rem] text-faint">{category}</span>
+          )}
+          {mediumLink && (
+            <ArrowLink href={mediumLink}>Medium article</ArrowLink>
+          )}
+        </div>
+      </div>
+    </Reveal>
+  );
 }
 
-export default Projects
+function TableView() {
+  return (
+    <Reveal className="overflow-x-auto">
+      <table className="w-full min-w-[820px] table-fixed border-collapse text-[0.8125rem]">
+        {/* Fixed proportions: titles get room, Links never gets squeezed off. */}
+        <colgroup>
+          <col className="w-[27%]" />
+          <col className="w-[6%]" />
+          <col className="w-[14%]" />
+          <col className="w-[16%]" />
+          <col className="w-[28%]" />
+          <col className="w-[9%]" />
+        </colgroup>
+        <thead>
+          <tr>
+            {["Project", "Year", "Type", "Result", "Tech stack", "Links"].map((h) => (
+              <th
+                key={h}
+                className="border-b border-line pb-[7px] pr-3 pt-[7px] text-left text-[0.6875rem] font-normal text-muted"
+              >
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {projectList.map((p) => (
+            <tr key={p.number} className="transition-colors hover:bg-[var(--hover)]">
+              <td className="border-b border-line-soft py-2.5 pr-3 align-top font-semibold">
+                {p.title}
+              </td>
+              <td className="border-b border-line-soft py-2.5 pr-3 align-top text-[0.6875rem] text-muted tnum">
+                {p.year}
+              </td>
+              <td className="border-b border-line-soft py-2.5 pr-3 align-top">
+                <Chip tone="grey" wrap>
+                  {p.category.replace("Coursework: ", "")}
+                </Chip>
+              </td>
+              <td className="border-b border-line-soft py-2.5 pr-3 align-top">
+                {p.achievement ? (
+                  <Chip tone="sakura" wrap>
+                    {p.achievement}
+                  </Chip>
+                ) : (
+                  <span className="text-[0.6875rem] text-muted">&mdash;</span>
+                )}
+              </td>
+              <td className="border-b border-line-soft py-2.5 pr-3 align-top">
+                <div className="flex flex-wrap gap-1.5">
+                  {p.skills.filter(Boolean).map((s) => (
+                    <Chip key={s}>{s}</Chip>
+                  ))}
+                </div>
+              </td>
+              <td className="border-b border-line-soft py-2.5 pr-3 align-top">
+                <div className="flex flex-col gap-1">
+                  {p.link ? (
+                    <ArrowLink href={p.link}>
+                      {p.link.includes("github.com") ? "GitHub" : "Write-up"}
+                    </ArrowLink>
+                  ) : (
+                    <span className="text-[0.6875rem] text-muted">&mdash;</span>
+                  )}
+                  {p.mediumLink && (
+                    <ArrowLink href={p.mediumLink}>Medium</ArrowLink>
+                  )}
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </Reveal>
+  );
+}
+
+export default function Projects() {
+  const [view, setView] = useState("gallery");
+  const [expanded, setExpanded] = useState(false);
+  const [lightbox, setLightbox] = useState(null);
+
+  const shown = expanded ? projectList : projectList.slice(0, VISIBLE);
+  const hidden = projectList.length - VISIBLE;
+
+  function collapse() {
+    setExpanded(false);
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document
+      .getElementById("projects")
+      ?.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+  }
+
+  return (
+    <section id="projects" className="scroll-mt-14 pt-[42px]">
+      <SectionHead title="Projects" note="" />
+
+      <Reveal
+        delay={0.08}
+        className="mb-[18px] flex flex-wrap items-center gap-0.5 border-b border-line"
+      >
+        {[
+          { id: "gallery", label: "Gallery", mark: "leaf" },
+          { id: "table", label: "Table", mark: "petal" },
+        ].map(({ id, label, mark }) => {
+          const on = view === id;
+          return (
+            <button
+              key={id}
+              type="button"
+              role="tab"
+              aria-selected={on}
+              onClick={() => setView(id)}
+              className={`-mb-px inline-flex items-center gap-[7px] border-b-2 px-2.5 py-[7px] pt-8 text-[0.8125rem] transition-colors ${
+                on
+                  ? "border-[var(--text)] font-semibold text-ink"
+                  : "border-transparent text-muted hover:text-ink"
+              }`}
+            >
+              <span className={mark} aria-hidden="true" />
+              {label}
+              <span className="text-faint tnum">{projectList.length}</span>
+            </button>
+          );
+        })}
+      </Reveal>
+
+      {view === "gallery" ? (
+        <>
+          <div className="grid grid-cols-[repeat(auto-fill,minmax(258px,1fr))] items-start gap-3.5">
+            {shown.map((project, i) => (
+              <GalleryCard
+                key={project.number}
+                project={project}
+                delay={i < VISIBLE ? 0.1 + i * 0.04 : (i - VISIBLE) * 0.06}
+                onImageClick={(pics, idx) => setLightbox({ pics, current: idx })}
+              />
+            ))}
+          </div>
+
+          {hidden > 0 && (
+            <div className="mt-4 flex justify-center">
+              <button
+                type="button"
+                aria-expanded={expanded}
+                onClick={() => (expanded ? collapse() : setExpanded(true))}
+                className="inline-flex items-center gap-[9px] rounded-[5px] border border-line px-[18px] py-2 text-[0.8125rem] text-muted transition-colors hover:border-sage-200 hover:bg-sage-50 hover:text-sage-ink"
+              >
+                {expanded ? "Show less" : `Show ${hidden} more`}
+                <span
+                  className={`text-[0.7em] transition-transform duration-300 ${
+                    expanded ? "rotate-180" : ""
+                  }`}
+                  aria-hidden="true"
+                >
+                  &#9660;
+                </span>
+              </button>
+            </div>
+          )}
+
+          <div className="mt-3 flex justify-center">
+            <Link
+              href="/projects"
+              className="text-[0.6875rem] text-muted underline decoration-[var(--line)] underline-offset-[3px] transition-colors hover:text-sage-ink hover:decoration-[var(--sage-ink)]"
+            >
+              Open the project database
+            </Link>
+          </div>
+        </>
+      ) : (
+        <TableView />
+      )}
+
+      {lightbox && (
+        <Lightbox
+          pics={lightbox.pics}
+          current={lightbox.current}
+          onClose={() => setLightbox(null)}
+          onNav={(idx) => setLightbox((prev) => ({ ...prev, current: idx }))}
+        />
+      )}
+    </section>
+  );
+}
