@@ -7,7 +7,7 @@ export default function Contact() {
       <SectionHead
         mark="petal"
         title="Contact"
-        note="Always happy to talk about AI, clean interfaces, or something you’re building."
+        note="Always happy to chat. Come say hi."
       />
 
       <Reveal delay={0.08} className="grid gap-px">
@@ -20,9 +20,9 @@ export default function Contact() {
               {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
               className="flex items-center gap-3 rounded-[5px] px-2.5 py-[11px] text-ink no-underline transition-[background-color,padding-left] duration-200 hover:bg-[var(--hover)] hover:pl-4"
             >
-              <span className="w-[92px] shrink-0 text-[0.8125rem] text-muted">{key}</span>
-              <span className="text-[0.8125rem]">{value}</span>
-              <span className="ml-auto text-[0.6875rem] text-sage-ink" aria-hidden="true">
+              <span className="w-[92px] shrink-0 text-[0.875rem] text-muted">{key}</span>
+              <span className="text-[0.875rem]">{value}</span>
+              <span className="ml-auto text-[0.75rem] text-sage-ink" aria-hidden="true">
                 &rarr;
               </span>
             </a>
@@ -30,8 +30,8 @@ export default function Contact() {
         })}
       </Reveal>
 
-      <div className="mt-11 flex flex-wrap justify-between gap-3.5 border-t border-line pt-[18px] text-[0.6875rem] text-faint">
-        <span className="font-hand text-[0.8125rem] italic">
+      <div className="mt-11 flex flex-wrap justify-between gap-3.5 border-t border-line pt-[18px] text-[0.75rem] text-faint">
+        <span className="font-hand text-[0.875rem] italic">
           Thanks for reading to the end
         </span>
         <span>Built with Next.js &amp; Tailwind</span>

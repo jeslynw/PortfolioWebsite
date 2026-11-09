@@ -4,7 +4,7 @@ import { Chip, Label, Reveal, SectionHead } from "./ui";
 export default function Education() {
   return (
     <section id="education" className="scroll-mt-14 pt-[42px]">
-      <SectionHead title="Education" note="Two programmes, one thread." />
+      <SectionHead title="Education" note="Where it started and where it's going." />
 
       <div className="grid gap-2.5">
         {educationList.map((edu, i) => (
@@ -14,14 +14,14 @@ export default function Education() {
             className="rounded-[6px] border border-line bg-card px-5 py-[18px] transition-[border-color,box-shadow] duration-200 hover:border-sage-200 hover:shadow-soft"
           >
             <div className="mb-[7px] flex flex-wrap items-center gap-[9px]">
-              <span className="text-[0.6875rem] text-muted">{edu.when}</span>
+              <span className="text-[0.75rem] text-muted">{edu.when}</span>
               {edu.current && <Chip tone="sakura">Current</Chip>}
             </div>
 
             <h3 className="mb-[3px] text-[1.0625rem] font-bold leading-[1.35] text-ink">
               {edu.school}
             </h3>
-            <p className="mb-[14px] text-[0.8125rem] text-sage-ink">{edu.degree}</p>
+            <p className="mb-[14px] text-[0.875rem] text-sage-ink">{edu.degree}</p>
 
             <Label className="mb-1.5">Coursework</Label>
             <div className="flex flex-wrap gap-1.5">

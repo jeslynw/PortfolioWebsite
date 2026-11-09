@@ -1,7 +1,17 @@
 export const projectList = [
     {
         number: "01",
-        year: "2026",
+        month_year: "March - June 2026",
+        category: "Coursework: Machine Learning Engineer",
+        title: "ShipGuard: Shipment Delay Risk Prediction",
+        description: "Predicts supply-chain delivery delays using a full MLOps pipeline: PySpark ETL through a Medallion architecture on GCP (GCS + BigQuery), automated XGBoost/LightGBM retraining with drift monitoring via Airflow, and a live FastAPI + Next.js dashboard for risk tracking and delivery simulation.",
+        pics: ["/images/ShipGuard/01.png", "/images/ShipGuard/02.png", "/images/ShipGuard/03.png", "/images/ShipGuard/04.png", "/images/ShipGuard/05.png"],
+        skills: ["PySpark", "Airflow", "Evidently", "Google Cloud Storage", "BigQuery", "FastAPI", "Next.js"],
+        link: "https://github.com/tiffabytes/CS611-MLE-Project",
+    },
+    {
+        number: "02",
+        month_year: "January - March 2026",
         category: "Coursework: Generative AI",
         title: "Dumpling: Agentic RAG System for Personal Knowledge Management",
         description: "A smart AI-powered personal notebook that integrates an agentic RAG system to autonomously ingest multi-modal data and automatically categorize it into relevant folders. It also includes a chatbot that allows users to query their knowledge base, supported by a corrective RAG fallback chain that escalates to web search when local content is insufficient.",
@@ -12,8 +22,8 @@ export const projectList = [
         mediumLink: "https://medium.com/mitb-for-all/dumpling-an-agentic-rag-system-that-organizes-your-notes-for-you-3fb6b62b6b35",
     },
     {
-        number: "02",
-        year: "2026",
+        number: "03",
+        month_year: "January - March 2026",
         category: "Coursework: Generative AI",
         title: "Emotion Classification in Text",
         description: "A text classification project that fine-tunes transformer-based models to detect human emotions (fear, anger, etc) from text. Three BERT-based models were benchmarked: BERT Base, DistilBERT, and RoBERTa. DistilBERT selected for its comparable accuracy at significantly lower computational cost. LoRA (PEFT) was applied over full fine-tuning to reduce GPU memory. Six LoRA hyperparameter configurations were explored, with the best config achieving 86.34% accuracy and Macro F1 of 81–89% across all classes.",
@@ -22,8 +32,8 @@ export const projectList = [
         link: "https://drive.google.com/file/d/1v3qDg6GvBM6jG_ENiN2Vwszjn5XnUMqP/view?usp=sharing",
     },
     {
-        number: "03",
-        year: "2025",
+        number: "04",
+        month_year: "2025",
         category: "Coursework: Statistical Thinking For Data Science",
         title: "Applied Statistical Thinking: Modeling Pre- and Post-COVID Diabetes Risk Factors",
         description: "A data-driven study analyzing 78,347 NHIS survey records across 2020 and 2024 to identify how diabetes risk factors shifted during and after COVID-19. Applied bivariate analysis, Chi-Square and Point-Biserial hypothesis testing, and logistic regression to identify key predictors: BMI, age, cardiovascular conditions, and mental health factors, achieving 84% accuracy with ROC-AUC of 0.82-0.83.",
@@ -31,8 +41,8 @@ export const projectList = [
         skills: ["Python", "Statsmodels", "Scikit-learn", "Pandas", "Matplotlib"],
     },
     {
-        number: "04",
-        year: "2024",
+        number: "05",
+        month_year: "2024",
         category: "Final Year Project",
         title: "EyeSeeYou: Intrusion Detection Dashboard System",
         description: "A web-based dashboard system that monitors and analyzes network traffic in real time. It supports 2 types of users: Network Administrator and Management. It detects signature-based behavior and potential threats within the network. EyeSeeYou provides actionable insights, real-time alerts, report generation, and trend analysis with machine learning to enhance threat detection and identify anomalies.",
@@ -43,7 +53,7 @@ export const projectList = [
     },
     // {
     //     number: "—",
-    //     year: "2024",
+    //     month_year: "2024",
     //     category: "Web App",
     //     title: "My Portfolio",
     //     description: "My portfolio website where i share my passion, skills, experiences, and projects.",
@@ -51,8 +61,8 @@ export const projectList = [
     //     skills: ["React", "Next.js", "Tailwind"],
     // },
     {
-        number: "05",
-        year: "2024",
+        number: "06",
+        month_year: "2024",
         category: "Coursework: Software Development",
         title: "Micasa: Property Listing",
         description: "A web platform for real estate agents, sellers, and buyers, designed to manage and sell property listings. The website offers a wide range of features to streamline property management tasks. By incorporating the B-C-E (Boundary, Controller, Entity) framework, it ensures an optimized architecture, providing an efficient usage for all users.",
@@ -61,8 +71,8 @@ export const projectList = [
         link: "https://drive.google.com/file/d/1wcpwEcB4HrMNOiVFy7bvumMo9nw39Htw/view?usp=sharing",
     },
     {
-        number: "06",
-        year: "2024",
+        number: "07",
+        month_year: "2024",
         category: "Hackathon",
         title: "SKECH",
         description: "A web platform that converts sketch into 3D model, specially designed to assist designers in visualizing custom clothes for their customers. We utilized 'outline' model to transform outlines into lifelike images and 'wonder3d' model to transform these images to 3D models.",
@@ -71,7 +81,7 @@ export const projectList = [
     },
     // {
     //     number: "—",
-    //     year: "2024",
+    //     month_year: "2024",
     //     category: "Hackathon",
     //     title: "Women's Sportswear E-Commerce",
     //     description: <>[ HACKATHON ] <br/>An e-commerce selling women&apos;s sportswear.</>,
@@ -80,7 +90,7 @@ export const projectList = [
     // },
     // {
     //     number: "06",
-    //     year: "2023",
+    //     month_year: "2023",
     //     category: "Web App",
     //     title: "UOW Room Booking System",
     //     description: "A web application tailored for UOW students and staff, designed to streamline room booking management. Students can easily book available rooms and staff can efficiently manage the room availability and schedules.",
@@ -89,7 +99,7 @@ export const projectList = [
     // },
     // {
     //     number: "07",
-    //     year: "2024",
+    //     month_year: "2024",
     //     category: "Hackathon",
     //     title: "E-Notary",
     //     description: <>[ HACKATHON ] <br/> A web application to verify and review the authenticity and legality of your documents, which aims to prevent signature forgery on contracts using Langcode and USIGN APIs, utilizing NodeJS for backend and ReactJS for interface.</>,

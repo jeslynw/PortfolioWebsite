@@ -97,7 +97,7 @@ export function Chip({ tone = "sage", wrap = false, children, className = "" }) 
   };
   return (
     <span
-      className={`rounded-[3px] px-2 py-[2px] text-[0.6875rem] ${
+      className={`rounded-[3px] px-2 py-[2px] text-[0.75rem] ${
         wrap ? "" : "whitespace-nowrap"
       } ${tones[tone]} ${className}`}
     >
@@ -108,7 +108,7 @@ export function Chip({ tone = "sage", wrap = false, children, className = "" }) 
 
 export function Label({ children, className = "" }) {
   return (
-    <p className={`text-[0.6875rem] uppercase tracking-[0.06em] text-faint ${className}`}>
+    <p className={`text-[0.75rem] uppercase tracking-[0.06em] text-faint ${className}`}>
       {children}
     </p>
   );
@@ -200,13 +200,13 @@ export function Figure({
         {src ? (
           <Image src={src} alt={alt} fill sizes={sizes} className="object-cover" />
         ) : (
-          <span className="px-2.5 text-center text-[0.5625rem] leading-relaxed tracking-[0.05em] text-ink opacity-50">
+          <span className="px-2.5 text-center text-[0.625rem] leading-relaxed tracking-[0.05em] text-ink opacity-50">
             add an image
           </span>
         )}
       </div>
       {caption && (
-        <figcaption className="px-0.5 pt-2 text-center font-hand text-[0.8125rem] italic text-muted">
+        <figcaption className="px-0.5 pt-2 text-center font-hand text-[0.875rem] italic text-muted">
           {caption}
         </figcaption>
       )}
@@ -222,7 +222,7 @@ export function ArrowLink({ href, children, external = true, className = "" }) {
     <a
       href={href}
       {...extra}
-      className={`inline-flex items-center gap-[5px] text-[0.6875rem] text-sage-ink no-underline transition-[gap] duration-200 hover:gap-[9px] hover:underline hover:underline-offset-[3px] ${className}`}
+      className={`inline-flex items-center gap-[5px] text-[0.75rem] text-sage-ink no-underline transition-[gap] duration-200 hover:gap-[9px] hover:underline hover:underline-offset-[3px] ${className}`}
     >
       {children} <span aria-hidden="true">&rarr;</span>
     </a>

@@ -2,8 +2,8 @@ import Sidebar from "./components/Sidebar";
 import TopBar from "./components/TopBar";
 import Cover from "./components/Cover";
 import About from "./components/About";
-import Currently from "./components/Currently";
 import Education from "./components/Education";
+import Experience from "./components/Experience";
 import Toolkit from "./components/Toolkit";
 import Projects from "./components/Projects";
 // import Writing from "./components/Writing";
@@ -16,7 +16,7 @@ export default function Home() {
     <div className="grid min-h-screen grid-cols-[244px_minmax(0,1fr)] items-start max-[900px]:grid-cols-1">
       <Sidebar />
 
-      <div className="paper min-h-screen shadow-paper max-[900px]:shadow-none">
+      <div className="paper min-h-screen shadow-paper max-[900px]:shadow-none max-[900px]:pb-16">
         <TopBar />
 
         {/* The Notion cover banner. The page icon below overlaps its lower edge. */}
@@ -29,9 +29,9 @@ export default function Home() {
           <Rule />
           <About />
           <Rule />
-          <Currently />
-          <Rule />
           <Education />
+          <Rule />
+          <Experience />
           <Rule />
           <Toolkit />
           <Rule />

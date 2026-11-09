@@ -14,7 +14,7 @@ function linkLabel(href) {
 }
 
 function GalleryCard({ project, delay, onImageClick }) {
-  const { number, year, category, title, description, pics, skills, achievement, link, mediumLink } = project;
+  const { number, month_year, category, title, description, pics, skills, achievement, link, mediumLink } = project;
 
   return (
     <Reveal
@@ -27,7 +27,7 @@ function GalleryCard({ project, delay, onImageClick }) {
       >
         <ProjectImageCarousel pics={pics} title={title} variant="card" />
         {pics.length > 1 && (
-          <span className="pointer-events-none absolute right-1.5 top-1.5 z-10 rounded-[3px] bg-[rgba(0,0,0,0.55)] px-1.5 py-px text-[0.625rem] text-white">
+          <span className="pointer-events-none absolute right-1.5 top-1.5 z-10 rounded-[3px] bg-[rgba(0,0,0,0.55)] px-1.5 py-px text-[0.6875rem] text-white">
             Click to view
           </span>
         )}
@@ -35,8 +35,8 @@ function GalleryCard({ project, delay, onImageClick }) {
 
       <div className="flex flex-1 flex-col gap-2 px-1.5">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-[0.6875rem] font-bold text-sage-ink tnum">{number}</span>
-          <span className="text-[0.6875rem] text-faint tnum">{year}</span>
+          <span className="text-[0.75rem] font-bold text-sage-ink tnum">{number}</span>
+          <span className="text-[0.75rem] text-faint tnum">{month_year}</span>
           {achievement && (
             <Chip tone="sakura" wrap>
               {achievement}
@@ -44,9 +44,9 @@ function GalleryCard({ project, delay, onImageClick }) {
           )}
         </div>
 
-        <h3 className="text-[0.8125rem] font-bold leading-[1.45] text-ink">{title}</h3>
+        <h3 className="text-[0.875rem] font-bold leading-[1.45] text-ink">{title}</h3>
 
-        <p className="clamp-3 m-0 font-sans text-[0.8125rem] text-muted">{description}</p>
+        <p className="clamp-3 m-0 font-sans text-[0.875rem] text-muted">{description}</p>
 
         <div className="flex flex-wrap gap-1.5">
           {skills.filter(Boolean).map((skill) => (
@@ -58,7 +58,7 @@ function GalleryCard({ project, delay, onImageClick }) {
           {link ? (
             <ArrowLink href={link}>{linkLabel(link)}</ArrowLink>
           ) : (
-            <span className="text-[0.6875rem] text-faint">{category}</span>
+            <span className="text-[0.75rem] text-faint">{category}</span>
           )}
           {mediumLink && (
             <ArrowLink href={mediumLink}>Medium article</ArrowLink>
@@ -72,7 +72,7 @@ function GalleryCard({ project, delay, onImageClick }) {
 function TableView() {
   return (
     <Reveal className="overflow-x-auto">
-      <table className="w-full min-w-[820px] table-fixed border-collapse text-[0.8125rem]">
+      <table className="w-full min-w-[820px] table-fixed border-collapse text-[0.875rem]">
         {/* Fixed proportions: titles get room, Links never gets squeezed off. */}
         <colgroup>
           <col className="w-[27%]" />
@@ -87,7 +87,7 @@ function TableView() {
             {["Project", "Year", "Type", "Result", "Tech stack", "Links"].map((h) => (
               <th
                 key={h}
-                className="border-b border-line pb-[7px] pr-3 pt-[7px] text-left text-[0.6875rem] font-normal text-muted"
+                className="border-b border-line pb-[7px] pr-3 pt-[7px] text-left text-[0.75rem] font-normal text-muted"
               >
                 {h}
               </th>
@@ -100,8 +100,8 @@ function TableView() {
               <td className="border-b border-line-soft py-2.5 pr-3 align-top font-semibold">
                 {p.title}
               </td>
-              <td className="border-b border-line-soft py-2.5 pr-3 align-top text-[0.6875rem] text-muted tnum">
-                {p.year}
+              <td className="border-b border-line-soft py-2.5 pr-3 align-top text-[0.75rem] text-muted tnum">
+                {p.month_year}
               </td>
               <td className="border-b border-line-soft py-2.5 pr-3 align-top">
                 <Chip tone="grey" wrap>
@@ -114,7 +114,7 @@ function TableView() {
                     {p.achievement}
                   </Chip>
                 ) : (
-                  <span className="text-[0.6875rem] text-muted">&mdash;</span>
+                  <span className="text-[0.75rem] text-muted">&mdash;</span>
                 )}
               </td>
               <td className="border-b border-line-soft py-2.5 pr-3 align-top">
@@ -131,7 +131,7 @@ function TableView() {
                       {p.link.includes("github.com") ? "GitHub" : "Write-up"}
                     </ArrowLink>
                   ) : (
-                    <span className="text-[0.6875rem] text-muted">&mdash;</span>
+                    <span className="text-[0.75rem] text-muted">&mdash;</span>
                   )}
                   {p.mediumLink && (
                     <ArrowLink href={p.mediumLink}>Medium</ArrowLink>
@@ -164,7 +164,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="scroll-mt-14 pt-[42px]">
-      <SectionHead title="Projects" note="" />
+      <SectionHead title="Projects" note="Things I've built, broken, and shipped." />
 
       <Reveal
         delay={0.08}
@@ -182,7 +182,7 @@ export default function Projects() {
               role="tab"
               aria-selected={on}
               onClick={() => setView(id)}
-              className={`-mb-px inline-flex items-center gap-[7px] border-b-2 px-2.5 py-[7px] pt-8 text-[0.8125rem] transition-colors ${
+              className={`-mb-px inline-flex items-center gap-[7px] border-b-2 px-2.5 py-[7px] text-[0.875rem] transition-colors ${
                 on
                   ? "border-[var(--text)] font-semibold text-ink"
                   : "border-transparent text-muted hover:text-ink"
@@ -215,7 +215,7 @@ export default function Projects() {
                 type="button"
                 aria-expanded={expanded}
                 onClick={() => (expanded ? collapse() : setExpanded(true))}
-                className="inline-flex items-center gap-[9px] rounded-[5px] border border-line px-[18px] py-2 text-[0.8125rem] text-muted transition-colors hover:border-sage-200 hover:bg-sage-50 hover:text-sage-ink"
+                className="inline-flex items-center gap-[9px] rounded-[5px] border border-line px-[18px] py-2 text-[0.875rem] text-muted transition-colors hover:border-sage-200 hover:bg-sage-50 hover:text-sage-ink"
               >
                 {expanded ? "Show less" : `Show ${hidden} more`}
                 <span
@@ -233,7 +233,7 @@ export default function Projects() {
           <div className="mt-3 flex justify-center">
             <Link
               href="/projects"
-              className="text-[0.6875rem] text-muted underline decoration-[var(--line)] underline-offset-[3px] transition-colors hover:text-sage-ink hover:decoration-[var(--sage-ink)]"
+              className="text-[0.875rem] text-muted underline decoration-[var(--line)] underline-offset-[3px] transition-colors hover:text-sage-ink hover:decoration-[var(--sage-ink)]"
             >
               Open the project database
             </Link>

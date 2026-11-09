@@ -7,7 +7,7 @@ import Lightbox from "@/app/components/Lightbox";
 import { ArrowLink, Chip, Label, Reveal } from "@/app/components/ui";
 
 function ProjectEntry({ project, index, onImageClick }) {
-  const { number, year, category, title, description, pics, skills, achievement, link } = project;
+  const { number, month_year, category, title, description, pics, skills, achievement, link } = project;
 
   return (
     <Reveal
@@ -16,8 +16,8 @@ function ProjectEntry({ project, index, onImageClick }) {
     >
       <div className="flex flex-col gap-3">
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-[0.6875rem] font-bold text-sage-ink tnum">{number}</span>
-          <span className="text-[0.6875rem] text-faint tnum">{year}</span>
+          <span className="text-[0.75rem] font-bold text-sage-ink tnum">{number}</span>
+          <span className="text-[0.75rem] text-faint tnum">{month_year}</span>
           <Chip tone="grey" wrap>
             {category}
           </Chip>
@@ -56,7 +56,7 @@ function ProjectEntry({ project, index, onImageClick }) {
       >
         <ProjectImageCarousel pics={pics} title={title} />
         {pics.length > 1 && (
-          <span className="pointer-events-none absolute right-1.5 top-1.5 z-10 rounded-[3px] bg-[rgba(0,0,0,0.55)] px-1.5 py-px text-[0.625rem] text-white">
+          <span className="pointer-events-none absolute right-1.5 top-1.5 z-10 rounded-[3px] bg-[rgba(0,0,0,0.55)] px-1.5 py-px text-[0.6875rem] text-white">
             Click to view
           </span>
         )}

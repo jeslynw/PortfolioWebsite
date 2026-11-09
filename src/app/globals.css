@@ -166,13 +166,14 @@
    BASE
    ============================================================ */
 html {
+  font-size: 17px;
   scroll-behavior: smooth;
 }
 
 body {
   background: var(--shell);
   color: var(--text);
-  font-size: 0.9375rem;
+  font-size: 1rem;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }

@@ -29,7 +29,7 @@ export default function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      className="flex items-center gap-[9px] whitespace-nowrap rounded-[5px] px-2 py-[5px] text-left text-[0.8125rem] text-side-muted transition-colors hover:bg-side-hover hover:text-side-ink"
+      className="flex items-center gap-[9px] whitespace-nowrap rounded-[5px] px-2 py-[5px] text-left text-[0.875rem] text-side-muted transition-colors hover:bg-side-hover hover:text-side-ink"
     >
       <Mark kind="petal" />
       <span className="label-to-dark">Dark mode</span>

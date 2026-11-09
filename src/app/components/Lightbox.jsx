@@ -82,7 +82,7 @@ export default function Lightbox({ pics, current, onClose, onNav }) {
           </button>
 
           <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 items-center gap-2 rounded-full bg-black/50 px-3 py-1.5">
-            <span className="text-[0.75rem] text-white/80 tnum">
+            <span className="text-[0.8125rem] text-white/80 tnum">
               {current + 1} / {total}
             </span>
           </div>

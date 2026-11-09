@@ -25,14 +25,12 @@ export const links = {
   email: "wangsajeslyn@gmail.com",
   github: "https://github.com/jeslynw",
   linkedin: "https://www.linkedin.com/in/jeslynwangsa/",
-  cv: "https://drive.google.com/file/d/1Rk5457XcdItHtYzDjnCcT5_cBvNzRz7G/view?usp=drive_link",
 };
 
 export const contactRows = [
   { key: "Email", value: links.email, href: `mailto:${links.email}` },
   { key: "GitHub", value: "github.com/jeslynw", href: links.github },
   { key: "LinkedIn", value: "in/jeslynwangsa", href: links.linkedin },
-  { key: "CV", value: "Resume PDF", href: links.cv },
 ];
 
 // Drives the sidebar tree, the inline `|` nav row, and the scroll-spy.
@@ -41,8 +39,8 @@ export const contactRows = [
 export const sections = [
   { id: "cover", label: "Overview", short: "Overview", mark: "leaf", icon: "overview" },
   { id: "about", label: "About me", short: "About", mark: "leaf", icon: "about" },
-  { id: "now", label: "Currently", short: "Currently", mark: "petal", icon: "now" },
   { id: "education", label: "Education", short: "Education", mark: "leaf", icon: "education" },
+  { id: "experience", label: "Experience", short: "Experience", mark: "petal", icon: "experience" },
   { id: "skills", label: "Tools", short: "Tools", mark: "leaf", icon: "toolkit" },
   { id: "projects", label: "Projects", short: "Projects", mark: "leaf", icon: "projects" },
   { id: "contact", label: "Contact", short: "Contact", mark: "petal", icon: "contact" },

@@ -3,7 +3,6 @@
 import { TypeAnimation } from "react-type-animation";
 import { useReducedMotion } from "framer-motion";
 import { profile } from "@/app/data/site";
-import InlineNav from "./InlineNav";
 import { Callout, Chip, Enter, Figure, Mark } from "./ui";
 
 function TypedLine() {
@@ -41,7 +40,7 @@ export default function Cover() {
       </Enter>
 
       <Enter delay={0.05} as="h1">
-        <span className="block text-[clamp(1.9rem,5.4vw,2.5rem)] font-bold leading-[1.15] tracking-[-0.02em] text-ink">
+        <span className="block text-[clamp(30px,5.4vw,40px)] font-bold leading-[1.15] tracking-[-0.02em] text-ink">
           {profile.name}
         </span>
       </Enter>
@@ -57,10 +56,6 @@ export default function Cover() {
       </Enter>
 
       <Enter delay={0.2}>
-        <InlineNav />
-      </Enter>
-
-      <Enter delay={0.25}>
         <div className="grid grid-cols-[minmax(0,1fr)_210px] items-start gap-[30px] max-[900px]:grid-cols-1">
           <div className="grid gap-px">
             {profile.properties.map(({ key, value, mark }) => (
@@ -68,16 +63,16 @@ export default function Cover() {
                 key={key}
                 className="grid grid-cols-[132px_minmax(0,1fr)] items-start gap-2.5 py-[5px] max-[900px]:grid-cols-[108px_minmax(0,1fr)]"
               >
-                <span className="flex items-center gap-2 text-[0.8125rem] text-muted">
+                <span className="flex items-center gap-2 text-[0.875rem] text-muted">
                   <Mark kind={mark} />
                   {key}
                 </span>
-                <span className="text-[0.8125rem]">{value}</span>
+                <span className="text-[0.875rem]">{value}</span>
               </div>
             ))}
 
             <div className="grid grid-cols-[132px_minmax(0,1fr)] items-start gap-2.5 py-[5px] max-[900px]:grid-cols-[108px_minmax(0,1fr)]">
-              <span className="flex items-center gap-2 text-[0.8125rem] text-muted">
+              <span className="flex items-center gap-2 text-[0.875rem] text-muted">
                 <Mark kind="target" />
                 Focus
               </span>

@@ -41,7 +41,7 @@ export default function ScrollCup() {
         <span className="cup-handle" />
       </div>
 
-      <span className="text-[0.6875rem] text-side-muted">
+      <span className="text-[0.75rem] text-side-muted">
         read <span ref={pctRef} className="tnum">0%</span>
       </span>
     </div>

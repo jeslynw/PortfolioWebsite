@@ -56,6 +56,7 @@ export const skillGroups = [
       "Linux/Unix",
       "Docker",
       "Google Cloud Platform",
+      "BigQuery",
       "ElasticSearch",
       "Kibana",
       "Airflow",

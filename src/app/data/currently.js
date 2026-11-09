@@ -3,11 +3,10 @@
 export const currently = {
   note: "A corner of my desk, this term.",
   article: {
-    title: "Building Dumpling: An Agentic RAG System for Personal Knowledge Management",
+    title: "Integrating Agentic RAG Into Your Notes",
     url: "https://medium.com/mitb-for-all/dumpling-an-agentic-rag-system-that-organizes-your-notes-for-you-3fb6b62b6b35",
-    tag: "Agentic AI",
-    blurb:
-      "How I built a retrieval system that corrects itself from chunking strategy to agentic loops.",
+    // tag: "Agentic AI",
+    blurb: "A deep dive into how Dumpling is built, start from comparing chunking strategies, embedding models, and retrieval approaches to find the best workflow for organizing unstructured notes.",
     publication: "MITB",
     year: "2025",
   },

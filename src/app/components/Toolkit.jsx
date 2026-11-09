@@ -13,7 +13,7 @@ export default function Toolkit() {
             delay={0.08 + i * 0.04}
             className="grid grid-cols-[132px_minmax(0,1fr)] items-baseline gap-2.5 max-[900px]:grid-cols-1 max-[900px]:gap-2.5"
           >
-            <span className="text-[0.8125rem] text-muted">
+            <span className="text-[0.875rem] text-muted">
               {group.name}
             </span>
 
@@ -21,7 +21,7 @@ export default function Toolkit() {
               {group.items.map((item) => (
                 <span
                   key={item}
-                  className="rounded-[4px] border border-line bg-card px-[11px] py-1 text-[0.8125rem] transition-[transform,border-color,background-color,color] duration-200 hover:-translate-y-0.5 hover:border-sage-200 hover:bg-sage-50 hover:text-sage-ink"
+                  className="rounded-[4px] border border-line bg-card px-[11px] py-1 text-[0.875rem] transition-[transform,border-color,background-color,color] duration-200 hover:-translate-y-0.5 hover:border-sage-200 hover:bg-sage-50 hover:text-sage-ink"
                 >
                   {item}
                 </span>

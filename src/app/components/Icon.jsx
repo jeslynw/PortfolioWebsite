@@ -27,6 +27,14 @@ const paths = {
       <path d="M4.4 7.6v3.2c0 .9 1.6 1.8 3.6 1.8s3.6-.9 3.6-1.8V7.6" />
     </>
   ),
+  experience: (
+    <>
+      <rect x="2.5" y="3" width="11" height="10" rx="1.2" />
+      <path d="M5.8 3V1.8" />
+      <path d="M10.2 3V1.8" />
+      <path d="M2.5 6.2h11" />
+    </>
+  ),
   toolkit: (
     <>
       <path d="M5.6 5.4 2.8 8.2l2.8 2.8" />
@@ -57,14 +65,12 @@ export default function Icon({ name, className = "" }) {
   return (
     <svg
       viewBox="0 0 16 16"
-      width="15"
-      height="15"
       fill="none"
       stroke="currentColor"
       strokeWidth="1.5"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={`shrink-0 ${className}`}
+      className={`shrink-0 h-[15px] w-[15px] ${className}`}
       aria-hidden="true"
     >
       {body}

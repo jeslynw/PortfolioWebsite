@@ -3,7 +3,7 @@ export const educationList = [
     school: "Singapore Management University",
     when: "Aug 2025 - ongoing",
     current: true,
-    degree: "Master of IT in Business - Artificial Intelligence track",
+    degree: "Master of IT in Business - Artificial Intelligence Track",
     coursework: [
       "Data Science",
       "Machine Learning",
