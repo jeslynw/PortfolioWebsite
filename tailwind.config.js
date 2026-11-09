@@ -44,7 +44,7 @@ module.exports = {
       },
       fontFamily: {
         hand: ["var(--font-hand)", "Cambria", "Georgia", "serif"],
-        sans: ["var(--font-sans)", "Inter", "-apple-system", "Segoe UI", "Helvetica", "Arial", "sans-serif"],
+        sans: ["var(--font-sans)", "-apple-system", "Segoe UI", "Helvetica", "Arial", "sans-serif"],
       },
       maxWidth: {
         page: "708px",      // Notion's default content width

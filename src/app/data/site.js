@@ -39,8 +39,8 @@ export const contactRows = [
 export const sections = [
   { id: "cover", label: "Overview", short: "Overview", mark: "leaf", icon: "overview" },
   { id: "about", label: "About me", short: "About", mark: "leaf", icon: "about" },
-  { id: "education", label: "Education", short: "Education", mark: "leaf", icon: "education" },
   { id: "experience", label: "Experience", short: "Experience", mark: "petal", icon: "experience" },
+  { id: "education", label: "Education", short: "Education", mark: "leaf", icon: "education" },
   { id: "skills", label: "Tools", short: "Tools", mark: "leaf", icon: "toolkit" },
   { id: "projects", label: "Projects", short: "Projects", mark: "leaf", icon: "projects" },
   { id: "contact", label: "Contact", short: "Contact", mark: "petal", icon: "contact" },

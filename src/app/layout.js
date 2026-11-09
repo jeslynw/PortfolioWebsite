@@ -1,13 +1,13 @@
-import { Inter, Spectral } from "next/font/google";
+import { Figtree, Fraunces } from "next/font/google";
 import "./globals.css";
 
-const sans = Inter({
+const sans = Figtree({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
-const hand = Spectral({
+const hand = Fraunces({
   subsets: ["latin"],
   weight: ["400", "600"],
   style: ["normal", "italic"],

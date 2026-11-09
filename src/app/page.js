@@ -29,9 +29,9 @@ export default function Home() {
           <Rule />
           <About />
           <Rule />
-          <Education />
-          <Rule />
           <Experience />
+          <Rule />
+          <Education />
           <Rule />
           <Toolkit />
           <Rule />
