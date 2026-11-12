@@ -170,6 +170,13 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Phones: everything is sized in rem, so shrinking the root fits more per screen
+   without touching the design. */
+@media (max-width: 600px) {
+  html { font-size: 15px; }
+  body { line-height: 1.6; }
+}
+
 body {
   background: var(--shell);
   color: var(--text);
@@ -456,6 +463,13 @@ body {
 }
 
 @layer utilities {
+  .clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   .clamp-3 {
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -466,4 +480,64 @@ body {
   .tnum {
     font-variant-numeric: tabular-nums;
   }
+}
+
+/* polaroid: white frame, thicker bottom, tape on top, slight tilt */
+@layer components {
+  .polaroid {
+    position: relative;
+    background: #fff;
+    padding: 10px 10px 40px;
+    border-radius: 2px;
+    box-shadow: var(--shadow-hi);
+    transform: rotate(-2deg);
+    transition: transform 0.3s;
+  }
+  .polaroid:hover { transform: rotate(0deg); }
+  .polaroid::before {
+    content: "";
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    width: 78px;
+    height: 20px;
+    background: var(--tape);
+    transform: translateX(-50%) rotate(-2deg);
+    z-index: 2;
+  }
+  :root[data-theme="dark"] .polaroid { background: #e8ede2; }
+}
+@media (prefers-reduced-motion: reduce) { .polaroid { transition: none; } }
+
+/* Cover layout. Desktop: name, intro, then details beside the photo.
+   Phones: the photo moves up beside the name instead of dropping to the bottom. */
+.cover-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 210px;
+  grid-template-areas:
+    "head head"
+    "intro intro"
+    "details photo";
+  column-gap: 30px;
+}
+.cover-head { grid-area: head; min-width: 0; }
+.cover-intro { grid-area: intro; margin-bottom: 22px; min-width: 0; }
+.cover-details { grid-area: details; align-self: center; min-width: 0; }
+.cover-photo-wrap { grid-area: photo; align-self: center; justify-self: center; }
+.cover-photo { width: 190px; max-width: 100%; }
+
+@media (max-width: 900px) {
+  /* same arrangement as desktop: details on the left, photo on the right */
+  .cover-grid {
+    grid-template-columns: minmax(0, 1fr) 108px;
+    column-gap: 14px;
+  }
+  .cover-photo { width: 100px; padding: 5px 5px 20px; }
+  .cover-photo::before { width: 44px; height: 12px; top: -5px; }
+}
+@media (max-width: 600px) {
+  .cover-grid { grid-template-columns: minmax(0, 1fr) 92px; column-gap: 10px; }
+  .cover-photo { width: 86px; padding: 4px 4px 16px; }
+  .cover-photo::before { width: 38px; height: 10px; top: -4px; }
+  .cover-intro { margin-bottom: 16px; }
 }

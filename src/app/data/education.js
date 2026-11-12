@@ -14,8 +14,20 @@ export const educationList = [
       "Applied Machine Learning",
       "Machine Learning Engineer",
       "AI & Uncertainty Reasoning",
-      "Prompt Engineering"
+      "Prompt Engineering",
+      "Deep Learning For Visual Recognition"
     ],
+    club: {
+      lead: "Student Community Manager in Institute of Innovation Entrepreneurship (IIE)",
+      text: "",
+    },
+    // hackathon: {
+    //   lead: "Hackathon",
+    //   text: [
+    //     "UOL club - Online Retail Platform",
+    //     "Appetize 2022, NAVER Cloud - Web-based signature identification and verification processes",
+    //   ],
+    // },
   },
   {
     school: "University of Wollongong",

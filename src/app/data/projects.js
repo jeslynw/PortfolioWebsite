@@ -1,6 +1,14 @@
-export const projectList = [
+const projects = [
     {
-        number: "01",
+        month_year: "September - November 2026",
+        category: "Coursework: Deep Learning for Visual Recognition",
+        title: "",
+        description: "",
+        pics: [],
+        skills: [],
+        link: "",
+    },
+    {
         month_year: "March - June 2026",
         category: "Coursework: Machine Learning Engineer",
         title: "ShipGuard: Shipment Delay Risk Prediction",
@@ -10,7 +18,6 @@ export const projectList = [
         link: "https://github.com/tiffabytes/CS611-MLE-Project",
     },
     {
-        number: "02",
         month_year: "January - March 2026",
         category: "Coursework: Generative AI",
         title: "Dumpling: Agentic RAG System for Personal Knowledge Management",
@@ -22,7 +29,6 @@ export const projectList = [
         mediumLink: "https://medium.com/mitb-for-all/dumpling-an-agentic-rag-system-that-organizes-your-notes-for-you-3fb6b62b6b35",
     },
     {
-        number: "03",
         month_year: "January - March 2026",
         category: "Coursework: Generative AI",
         title: "Emotion Classification in Text",
@@ -32,7 +38,6 @@ export const projectList = [
         link: "https://drive.google.com/file/d/1v3qDg6GvBM6jG_ENiN2Vwszjn5XnUMqP/view?usp=sharing",
     },
     {
-        number: "04",
         month_year: "2025",
         category: "Coursework: Statistical Thinking For Data Science",
         title: "Applied Statistical Thinking: Modeling Pre- and Post-COVID Diabetes Risk Factors",
@@ -41,7 +46,6 @@ export const projectList = [
         skills: ["Python", "Statsmodels", "Scikit-learn", "Pandas", "Matplotlib"],
     },
     {
-        number: "05",
         month_year: "2024",
         category: "Final Year Project",
         title: "EyeSeeYou: Intrusion Detection Dashboard System",
@@ -61,7 +65,6 @@ export const projectList = [
     //     skills: ["React", "Next.js", "Tailwind"],
     // },
     {
-        number: "06",
         month_year: "2024",
         category: "Coursework: Software Development",
         title: "Micasa: Property Listing",
@@ -71,7 +74,6 @@ export const projectList = [
         link: "https://drive.google.com/file/d/1wcpwEcB4HrMNOiVFy7bvumMo9nw39Htw/view?usp=sharing",
     },
     {
-        number: "07",
         month_year: "2024",
         category: "Hackathon",
         title: "SKECH",
@@ -107,3 +109,5 @@ export const projectList = [
     //     skills: ["React", "Node.js"],
     // },
 ]
+
+export const projectList = projects.filter((p) => p.title).map((p, i) => ({ ...p, number: String(i + 1).padStart(2, "0") }));

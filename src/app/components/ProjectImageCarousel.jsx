@@ -33,6 +33,15 @@ export default function ProjectImageCarousel({ pics, title, variant = "full" }) 
   const hasMultiple = total > 1;
   const card = variant === "card";
 
+  // A project with no screenshots yet: show a quiet placeholder instead of a broken image.
+  if (total === 0) {
+    return (
+      <div className="grid h-full w-full min-h-[120px] place-items-center bg-sage-50 px-3 text-center font-hand text-[0.875rem] italic text-faint">
+        Screenshots coming soon
+      </div>
+    );
+  }
+
   const go = (delta) => (e) => {
     e.stopPropagation();
     e.preventDefault();

@@ -1,9 +1,9 @@
 import { experienceList } from "@/app/data/experience";
-import { Chip, Reveal, SectionHead } from "./ui";
+import { Chip, PhoneClamp, Reveal, SectionHead } from "./ui";
 
 export default function Experience() {
   return (
-    <section id="experience" className="scroll-mt-14 pt-[42px]">
+    <section id="experience" className="scroll-mt-14 pt-[42px] max-[600px]:pt-5">
       <SectionHead title="Experience" note="Where I've worked and what I've built." />
 
       <div className="grid gap-8">
@@ -40,16 +40,17 @@ export default function Experience() {
                   {exp.current && <Chip tone="sakura">Current</Chip>}
                 </div>
 
-                <h3 className="text-[1.0625rem] leading-[1.3] text-ink">
-                  <span className="font-bold">{exp.role}</span>
+                <h3 className="font-hand text-[1.125rem] leading-[1.3] text-ink">
+                  <span className="font-semibold">{exp.role}</span>
                   <span className="mx-1.5 text-faint">📍</span>
-                  <span className="font-medium text-sage-ink">{exp.company}</span>
+                  <span className="font-normal text-sage-ink">{exp.company}</span>
                 </h3>
 
                 <p className="mt-1.5 text-[0.8125rem] leading-[1.65] text-muted italic font-hand">
                   {exp.description}
                 </p>
 
+                <PhoneClamp collapsed="max-[600px]:max-h-[8rem]" fade="from-page" more="Show details">
                 {exp.bullets?.length > 0 && (
                   <ul className="mt-2.5 grid gap-2">
                     {exp.bullets.map((b, j) => (
@@ -68,6 +69,7 @@ export default function Experience() {
                     ))}
                   </div>
                 )}
+                </PhoneClamp>
               </div>
             </div>
           </Reveal>

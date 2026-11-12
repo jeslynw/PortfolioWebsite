@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 
@@ -130,7 +131,7 @@ export function Callout({ tone = "sage", mark = "leaf", children }) {
 /* ---------- section break with a pressed leaf ---------- */
 
 export function Rule({ className = "" }) {
-  return <hr className={`rule mt-10 ${className}`} />;
+  return <hr className={`rule mt-10 max-[600px]:mt-6 ${className}`} />;
 }
 
 /* ---------- section heading ---------- */
@@ -143,7 +144,7 @@ export function SectionHead({ mark = "leaf", title, note }) {
       <Reveal className="mb-1.5 flex items-center gap-2.5">
         <Mark kind={mark} />
         <span className="relative w-fit pb-1.5">
-          <h2 className="text-[1.75rem] font-bold leading-tight tracking-[-0.015em] text-ink">
+          <h2 className="font-hand text-[1.75rem] font-semibold leading-tight tracking-[-0.015em] text-ink">
             {title}
           </h2>
 
@@ -172,7 +173,7 @@ export function SectionHead({ mark = "leaf", title, note }) {
 
       {note && (
         <Reveal delay={0.04}>
-          <p className="mb-[22px] mt-2 font-hand text-[1.0625rem] italic text-muted">{note}</p>
+          <p className="mb-[22px] mt-2 font-hand text-[1.0625rem] italic text-muted max-[600px]:mb-3.5 max-[600px]:text-[0.9375rem]">{note}</p>
         </Reveal>
       )}
     </>
@@ -226,5 +227,42 @@ export function ArrowLink({ href, children, external = true, className = "" }) {
     >
       {children} <span aria-hidden="true">&rarr;</span>
     </a>
+  );
+}
+
+/* ---------- phone-only collapse ---------- */
+
+/* On phones the content is cut to a short preview with a fade and a toggle.
+   On wider screens it renders in full and the toggle is hidden.
+   Pass `collapsed` (a max-height class) and `fade` (a from-* gradient class) as literal strings. */
+export function PhoneClamp({
+  children,
+  collapsed = "max-[600px]:max-h-[9rem]",
+  fade = "from-card",
+  more = "Read more",
+  less = "Show less",
+  className = "",
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <div className={className}>
+      <div className={`relative ${open ? "" : `${collapsed} max-[600px]:overflow-hidden`}`}>
+        {children}
+        {!open && (
+          <span
+            aria-hidden="true"
+            className={`pointer-events-none absolute inset-x-0 bottom-0 hidden h-12 bg-gradient-to-t ${fade} to-transparent max-[600px]:block`}
+          />
+        )}
+      </div>
+      <button
+        type="button"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open}
+        className="mt-1.5 hidden text-[0.8125rem] font-semibold text-sage-ink underline-offset-[3px] hover:underline max-[600px]:block"
+      >
+        {open ? less : more}
+      </button>
+    </div>
   );
 }

@@ -28,7 +28,7 @@ function ProjectEntry({ project, index, onImageClick }) {
           )}
         </div>
 
-        <h2 className="text-[1.0625rem] font-bold leading-[1.4] text-ink">{title}</h2>
+        <h2 className="font-hand text-[1.125rem] font-semibold leading-[1.4] text-ink">{title}</h2>
 
         <p className="m-0 font-sans text-[0.875rem] leading-[1.75] text-muted">{description}</p>
 

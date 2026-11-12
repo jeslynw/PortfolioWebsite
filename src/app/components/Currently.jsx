@@ -112,7 +112,7 @@ export default function Currently() {
   const colorScheme = useTheme();
 
   return (
-    <section id="now" className="scroll-mt-14 pt-[42px]">
+    <section id="now" className="scroll-mt-14 pt-[42px] max-[600px]:pt-5">
       <SectionHead title="Currently" note={note} />
 
       <div className="grid grid-cols-[25%_50%_25%] items-start gap-3 max-[900px]:grid-cols-2 max-[580px]:grid-cols-1">

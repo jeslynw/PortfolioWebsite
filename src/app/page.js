@@ -7,7 +7,6 @@ import Experience from "./components/Experience";
 import Toolkit from "./components/Toolkit";
 import Projects from "./components/Projects";
 // import Writing from "./components/Writing";
-import Contact from "./components/Contact";
 import Petals from "./components/Petals";
 import { Rule } from "./components/ui";
 
@@ -20,11 +19,11 @@ export default function Home() {
         <TopBar />
 
         {/* The Notion cover banner. The page icon below overlaps its lower edge. */}
-        <div className="relative h-[clamp(120px,20vh,176px)] overflow-hidden bg-[radial-gradient(120%_140%_at_15%_0%,var(--sakura-200),transparent_55%),linear-gradient(105deg,#6E8159_0%,var(--sage)_55%,var(--sage-mid)_100%)]">
+        <div className="relative h-[clamp(120px,20vh,176px)] max-[600px]:h-[84px] overflow-hidden bg-[radial-gradient(120%_140%_at_15%_0%,var(--sakura-200),transparent_55%),linear-gradient(105deg,#6E8159_0%,var(--sage)_55%,var(--sage-mid)_100%)]">
           <Petals />
         </div>
 
-        <div className="mx-auto max-w-[1000px] px-[42px]">
+        <div className="mx-auto max-w-[1000px] px-[42px] pb-24 max-[900px]:px-5">
           <Cover />
           <Rule />
           <About />
@@ -33,13 +32,11 @@ export default function Home() {
           <Rule />
           <Education />
           <Rule />
-          <Toolkit />
-          <Rule />
           <Projects />
+          <Rule />
+          <Toolkit />
           {/* <Rule />
           <Writing /> */}
-          <Rule />
-          <Contact />
         </div>
       </div>
     </div>

@@ -66,7 +66,7 @@ export default function ProjectsPage() {
             <span className="leaf" aria-hidden="true" />
           </div>
 
-          <h1 className="mb-2.5 text-[clamp(1.75rem,5vw,2.25rem)] font-bold leading-[1.15] tracking-[-0.02em] text-ink">
+          <h1 className="mb-2.5 font-hand text-[clamp(1.75rem,5vw,2.25rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-ink">
             Project Database
           </h1>
           <p className="mb-8 font-hand text-[1.0625rem] italic text-muted">

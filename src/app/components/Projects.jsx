@@ -1,34 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { projectList } from "@/app/data/projects";
 import ProjectImageCarousel from "./ProjectImageCarousel";
-import Lightbox from "./Lightbox";
+import ProjectModal from "./ProjectModal";
 import { ArrowLink, Chip, Reveal, SectionHead } from "./ui";
 
-const VISIBLE = 3;
+const PAGE_SIZE = 6;
+const MAX_CHIPS = 4;
 
 function linkLabel(href) {
   return href.includes("github.com") ? "See the code" : "Read the write-up";
 }
 
-function GalleryCard({ project, delay, onImageClick }) {
+function GalleryCard({ project, delay, onOpen, extraClass = "" }) {
   const { number, month_year, category, title, description, pics, skills, achievement, link, mediumLink } = project;
 
   return (
     <Reveal
       delay={delay}
-      className="group/card flex flex-col gap-2.5 rounded-[7px] border border-line bg-card px-[9px] pb-[15px] pt-[9px] transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-[3px] hover:border-sage-200 hover:shadow-lift"
+      className={`${extraClass} group/card flex flex-col gap-2.5 max-[600px]:w-[84%] max-[600px]:shrink-0 max-[600px]:snap-start rounded-[7px] border border-line bg-card px-[9px] pb-[15px] pt-[9px] transition-[box-shadow,transform,border-color] duration-300 hover:-translate-y-[3px] hover:border-sage-200 hover:shadow-lift`}
     >
       <div
         className="relative aspect-[16/10] cursor-pointer overflow-hidden rounded-[4px] border border-line-soft bg-sage-50"
-        onClick={() => onImageClick(pics, 0)}
+        onClick={onOpen}
       >
         <ProjectImageCarousel pics={pics} title={title} variant="card" />
         {pics.length > 1 && (
           <span className="pointer-events-none absolute right-1.5 top-1.5 z-10 rounded-[3px] bg-[rgba(0,0,0,0.55)] px-1.5 py-px text-[0.6875rem] text-white">
-            Click to view
+            View details
           </span>
         )}
       </div>
@@ -44,14 +45,29 @@ function GalleryCard({ project, delay, onImageClick }) {
           )}
         </div>
 
-        <h3 className="text-[0.875rem] font-bold leading-[1.45] text-ink">{title}</h3>
+        <h3 className="clamp-2 min-h-[2.9em] font-hand text-[1rem] font-semibold leading-[1.45] text-ink">
+          <button
+            type="button"
+            onClick={onOpen}
+            aria-haspopup="dialog"
+            className="cursor-pointer border-0 bg-transparent p-0 text-left font-[inherit] text-inherit hover:text-sage-ink"
+          >
+            {title}
+          </button>
+        </h3>
 
-        <p className="clamp-3 m-0 font-sans text-[0.875rem] text-muted">{description}</p>
+        <p onClick={onOpen} className="clamp-3 m-0 min-h-[5.1em] font-sans text-[0.875rem] text-muted">{description}</p>
 
         <div className="flex flex-wrap gap-1.5">
-          {skills.filter(Boolean).map((skill) => (
+          {skills.filter(Boolean).slice(0, MAX_CHIPS).map((skill) => (
             <Chip key={skill}>{skill}</Chip>
           ))}
+          {skills.filter(Boolean).length > MAX_CHIPS && (
+            <Chip tone="grey">
+              <span aria-hidden="true">&hellip;</span>
+              <span className="sr-only">and {skills.filter(Boolean).length - MAX_CHIPS} more</span>
+            </Chip>
+          )}
         </div>
 
         <div className="mt-auto flex flex-wrap items-center gap-2.5 pt-1">
@@ -148,14 +164,31 @@ function TableView() {
 
 export default function Projects() {
   const [view, setView] = useState("gallery");
-  const [expanded, setExpanded] = useState(false);
-  const [lightbox, setLightbox] = useState(null);
+  const [page, setPage] = useState(1);
+  const [openProject, setOpenProject] = useState(null);
+  const rowRef = useRef(null);
+  const [bar, setBar] = useState({ thumb: 0.3, progress: 0 });
 
-  const shown = expanded ? projectList : projectList.slice(0, VISIBLE);
-  const hidden = projectList.length - VISIBLE;
+  // Scroll line under the phone swipe row: thumb size = how much is visible, position = how far along.
+  function measure() {
+    const el = rowRef.current;
+    if (!el || el.scrollWidth <= el.clientWidth) return;
+    setBar({
+      thumb: el.clientWidth / el.scrollWidth,
+      progress: el.scrollLeft / (el.scrollWidth - el.clientWidth),
+    });
+  }
+  useEffect(() => {
+    measure();
+    window.addEventListener("resize", measure);
+    return () => window.removeEventListener("resize", measure);
+  }, [view]);
 
-  function collapse() {
-    setExpanded(false);
+  const pageCount = Math.ceil(projectList.length / PAGE_SIZE);
+  const pageStart = (page - 1) * PAGE_SIZE;
+
+  function goToPage(n) {
+    setPage(n);
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     document
       .getElementById("projects")
@@ -163,7 +196,7 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="scroll-mt-14 pt-[42px]">
+    <section id="projects" className="scroll-mt-14 pt-[42px] max-[600px]:pt-5">
       <SectionHead title="Projects" note="Things I've built, broken, and shipped." />
 
       <Reveal
@@ -198,36 +231,68 @@ export default function Projects() {
 
       {view === "gallery" ? (
         <>
-          <div className="grid grid-cols-[repeat(auto-fill,minmax(258px,1fr))] items-start gap-3.5">
-            {shown.map((project, i) => (
-              <GalleryCard
-                key={project.number}
-                project={project}
-                delay={i < VISIBLE ? 0.1 + i * 0.04 : (i - VISIBLE) * 0.06}
-                onImageClick={(pics, idx) => setLightbox({ pics, current: idx })}
-              />
-            ))}
+          <div ref={rowRef} onScroll={measure} className="grid grid-cols-[repeat(auto-fill,minmax(258px,1fr))] relative items-stretch gap-3.5 max-[600px]:-mx-5 max-[600px]:flex max-[600px]:snap-x max-[600px]:snap-mandatory max-[600px]:overflow-x-auto max-[600px]:px-5 max-[600px]:pb-3 max-[600px]:scroll-pl-5 max-[600px]:[scrollbar-width:none] max-[600px]:[&::-webkit-scrollbar]:hidden">
+            {projectList.map((project, i) => {
+              const onPage = i >= pageStart && i < pageStart + PAGE_SIZE;
+              return (
+                <GalleryCard
+                  key={project.number}
+                  project={project}
+                  delay={0.1 + (i % PAGE_SIZE) * 0.04}
+                  onOpen={() => setOpenProject(project)}
+                  extraClass={onPage ? "" : "hidden max-[600px]:flex"}
+                />
+              );
+            })}
           </div>
 
-          {hidden > 0 && (
-            <div className="mt-4 flex justify-center">
+          {/* Phones: a scroll line instead of page buttons */}
+          <div className="mt-1 hidden h-[3px] rounded-full bg-sage-100 max-[600px]:block" aria-hidden="true">
+            <div
+              className="h-full rounded-full bg-sage-ink transition-[margin] duration-100"
+              style={{ width: `${bar.thumb * 100}%`, marginLeft: `${bar.progress * (1 - bar.thumb) * 100}%` }}
+            />
+          </div>
+
+          {pageCount > 1 && (
+            <nav aria-label="Project pages" className="mt-6 flex items-center justify-center gap-1.5 max-[600px]:hidden">
               <button
                 type="button"
-                aria-expanded={expanded}
-                onClick={() => (expanded ? collapse() : setExpanded(true))}
-                className="inline-flex items-center gap-[9px] rounded-[5px] border border-line px-[18px] py-2 text-[0.875rem] text-muted transition-colors hover:border-sage-200 hover:bg-sage-50 hover:text-sage-ink"
+                onClick={() => goToPage(page - 1)}
+                disabled={page === 1}
+                aria-label="Previous page"
+                className="rounded-[5px] border border-line px-3 py-1.5 text-[0.875rem] text-muted transition-colors hover:bg-sage-50 hover:text-sage-ink disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-muted"
               >
-                {expanded ? "Show less" : `Show ${hidden} more`}
-                <span
-                  className={`text-[0.7em] transition-transform duration-300 ${
-                    expanded ? "rotate-180" : ""
-                  }`}
-                  aria-hidden="true"
-                >
-                  &#9660;
-                </span>
+                &larr; Prev
               </button>
-            </div>
+
+              {Array.from({ length: pageCount }, (_, i) => i + 1).map((n) => (
+                <button
+                  key={n}
+                  type="button"
+                  onClick={() => goToPage(n)}
+                  aria-label={`Page ${n}`}
+                  aria-current={n === page ? "page" : undefined}
+                  className={`h-8 min-w-8 rounded-[5px] border px-2 text-[0.875rem] tnum transition-colors ${
+                    n === page
+                      ? "border-sage-ink bg-sage-ink font-semibold text-card"
+                      : "border-line text-muted hover:bg-sage-50 hover:text-sage-ink"
+                  }`}
+                >
+                  {n}
+                </button>
+              ))}
+
+              <button
+                type="button"
+                onClick={() => goToPage(page + 1)}
+                disabled={page === pageCount}
+                aria-label="Next page"
+                className="rounded-[5px] border border-line px-3 py-1.5 text-[0.875rem] text-muted transition-colors hover:bg-sage-50 hover:text-sage-ink disabled:cursor-not-allowed disabled:opacity-40 disabled:hover:bg-transparent disabled:hover:text-muted"
+              >
+                Next &rarr;
+              </button>
+            </nav>
           )}
 
           <div className="mt-3 flex justify-center">
@@ -243,13 +308,8 @@ export default function Projects() {
         <TableView />
       )}
 
-      {lightbox && (
-        <Lightbox
-          pics={lightbox.pics}
-          current={lightbox.current}
-          onClose={() => setLightbox(null)}
-          onNav={(idx) => setLightbox((prev) => ({ ...prev, current: idx }))}
-        />
+      {openProject && (
+        <ProjectModal project={openProject} onClose={() => setOpenProject(null)} />
       )}
     </section>
   );

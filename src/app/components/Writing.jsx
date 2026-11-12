@@ -12,7 +12,7 @@ const articles = [
 
 export default function Writing() {
   return (
-    <section id="writing" className="scroll-mt-14 pt-[42px]">
+    <section id="writing" className="scroll-mt-14 pt-[42px] max-[600px]:pt-5">
       <SectionHead title="Writing" note="Sometimes I write about what I build — here's one that made it to Medium." />
 
       <div className="grid gap-4">
